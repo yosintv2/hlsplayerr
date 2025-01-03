@@ -155,12 +155,16 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
    // Set the href attribute of the link without encoding
     const playerLink = document.getElementById('playerLink');
     playerLink.href = basePlayerUrl + liveLink;
+
+
+    // Optionally, trigger a click on the link to open the player immediately
+    playerLink.click();
+	  
   }
 </script>
 
 <!--
-    // Optionally, trigger a click on the link to open the player immediately
-    playerLink.click();
+
 -->
 
 </div>
