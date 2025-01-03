@@ -115,9 +115,9 @@ Do not remove this
     name='playerytype' 
     required='required'
   >
-    <option value='player3'>MP4/M3U8 (JWP Player)</option>
-    <option value='player7'>MP4/M3U8 (VideoJS Player)</option>
-    <option value='player1'>M3U8 Only (Plyr Player)</option>
+    <option value='player3'> MP4/M3U8 (JWP Player)</option>
+    <option value='player7'> MP4/M3U8 (Clappr Player)</option>
+    <option value='player1'> M3U8 Only (Plyr Player)</option>
   </select>
 </div>
 <a id="playerLink" target="_blank">
@@ -148,10 +148,10 @@ Do not remove this
     let basePlayerUrl;
     switch (playerType) {
       case 'player3':
-        basePlayerUrl = 'https://example.com/jwp-player.html?url=';
+        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
         break;
       case 'player7':
-        basePlayerUrl = 'https://example.com/videojs-player.html?url=';
+        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
         break;
       case 'player1':
         basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
