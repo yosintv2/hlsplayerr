@@ -161,9 +161,9 @@ Do not remove this
         return;
     }
 
-    // Set the href attribute of the link
+   // Set the href attribute of the link without encoding
     const playerLink = document.getElementById('playerLink');
-    playerLink.href = basePlayerUrl + encodeURIComponent(liveLink);
+    playerLink.href = basePlayerUrl + liveLink;
 
     // Optionally, trigger a click on the link to open the player immediately
     playerLink.click();
