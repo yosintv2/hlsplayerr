@@ -96,11 +96,11 @@ Do not remove this
 
 
 <div class='form-group'>
-  <label for='usr'>Enter Your MP4/M3U8/HLS Links</label>
+  <label for='livelink'>Enter Your MP4/M3U8/HLS Links</label>
   <input 
     class='form-control' 
-    id='playerytype' 
-    name='playerytype' 
+    id='livelink' 
+    name='livelink' 
     placeholder='Enter your video link here' 
     required='required' 
     type='text' 
@@ -108,7 +108,7 @@ Do not remove this
   />
 </div>
 <div class='form-group'>
-  <label for='usr'><b>Choose Player</b></label>
+  <label for='playerytype'><b>Choose Player</b></label>
   <select 
     class='select form-control' 
     id='playerytype' 
@@ -135,29 +135,42 @@ Do not remove this
 <script>
   function redirectToPlayer() {
     // Get the input value and selected player type
-    const liveLink = document.getElementById('livelink').value;
+    const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
 
     // Validate the input link
-    if (!liveLink.trim()) {
+    if (!liveLink) {
       alert('Please enter a valid MP4/M3U8/HLS link!');
       return;
     }
 
-    // Generate the player URL based on the selected player
-    let basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
-    if (playerType === 'player3') {
-      basePlayerUrl = 'https://example.com/jwp-player.html?url=';
-    } else if (playerType === 'player7') {
-      basePlayerUrl = 'https://example.com/videojs-player.html?url=';
-    } else if (playerType === 'player1') {
-      basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
+    // Determine the player URL based on the selected player
+    let basePlayerUrl;
+    switch (playerType) {
+      case 'player3':
+        basePlayerUrl = 'https://example.com/jwp-player.html?url=';
+        break;
+      case 'player7':
+        basePlayerUrl = 'https://example.com/videojs-player.html?url=';
+        break;
+      case 'player1':
+        basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
+        break;
+      default:
+        alert('Invalid player selected!');
+        return;
     }
 
     // Set the href attribute of the link
-    document.getElementById('playerLink').href = basePlayerUrl + encodeURIComponent(liveLink);
+    const playerLink = document.getElementById('playerLink');
+    playerLink.href = basePlayerUrl + encodeURIComponent(liveLink);
+
+    // Optionally, trigger a click on the link to open the player immediately
+    playerLink.click();
   }
 </script>
+
+	
 
 </div>
 </div>
