@@ -9,6 +9,8 @@
 <link href='https://cdn.jsdelivr.net/gh/iamsinghyogendra/yosintv/rosyotv.css' rel='stylesheet'/>
 <link href='/fav.png' rel='icon' type='image/x-icon'/>
 <meta content='HLS-Player.net is the perfect destination for anyone seeking a reliable and versatile M3U8 player for streaming HTTP Live Streaming (HLS) video content.' name='description'/>
+<meta name="google-site-verification" content="wotklhViaDVD2LPjfIZyH3iQnf60G4vtT744BXFvHyU" />
+
 
 
 	
@@ -94,26 +96,19 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 
 
 <div class='form-group'>
-  <label for='livelink'>Enter Your MP4/M3U8/HLS Links</label>
+  <label for='livelink'> Enter your MP4/M3U8/HLS links </label>
   <input class='form-control' id='livelink' name='livelink' placeholder='Enter your video link here' required='required' type='text' value='' />
 </div>
 <div class='form-group'>
-  <label for='playerytype'><b>Choose Player</b></label>
-  <select 
-    class='select form-control' 
-    id='playerytype' 
-    name='playerytype' 
-    required='required'
-  >
-    <option value='player3'> MP4/M3U8 (JWP Player)</option>
-    <option value='player7'> MP4/M3U8 (Clappr Player)</option>
-    <option value='player1'> M3U8 Only (Plyr Player)</option>
+  <label for='playerytype'><b> Choose Player </b></label>
+  <select class='select form-control' id='playerytype' name='playerytype' required='required'>
+    <option value='player1'> MP4/M3U8 (JWP Player) </option>
+    <option value='player2'> MP4/M3U8 (Clappr Player) </option>
+    <option value='player3'> M3U8 Only (Plyr Player) </option>
   </select>
 </div>
 <a id="playerLink" target="_blank">
-  <button class='btn btn-primary' id='trydemo' name='submit' type='button'onclick="redirectToPlayer()">
-    Play Now
-  </button>
+  <button class='btn btn-primary' id='trydemo' name='submit' type='button'onclick="redirectToPlayer()"> Play Now </button>
 </a>
 
 <script>
@@ -131,13 +126,13 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     // Determine the player URL based on the selected player
     let basePlayerUrl;
     switch (playerType) {
-      case 'player3':
-        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
-        break;
-      case 'player7':
-        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
-        break;
       case 'player1':
+        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
+        break;
+      case 'player2':
+        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
+        break;
+      case 'player3':
         basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
         break;
       default:
@@ -267,8 +262,6 @@ on the streaming server, otherwise it may not play.
 </div><div class='widget HTML' data-version='1' id='HTML216'>
 <script> var radiatoken = 'Kl8lOXN6dmUwN292PWljdjcya3Y3P3JvbTVkYXNpczMwZGIwQSVfKg=='; </script>
 </div></div>
-<script async='async' src='https://www.google-analytics.com/analytics.js' type='text/javascript'></script>
-
 
 <script>
  // Function to show the floating ad after 12 seconds
