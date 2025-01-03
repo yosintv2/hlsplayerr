@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html dir='ltr' lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
 <head>
-<!-- <script>(function(s,u,z,p){s.src=u,s.setAttribute(&#39;data-zone&#39;,z),p.appendChild(s);})(document.createElement(&#39;script&#39;),&#39;https://inklinkor.com/tag.min.js&#39;,6304340,document.body||document.documentElement)</script> <script async='async' data-cfasync='false' src='//ophoacit.com/1?z=5660180'/> -->
 <meta content='wotklhViaDVD2LPjfIZyH3iQnf60G4vtT744BXFvHyU' name='google-site-verification'/>
 <link href='https://fonts.googleapis.com' rel='preconnect'/>
 <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
@@ -65,9 +64,6 @@ Do not remove this
 </style>
 <meta content='width=device-width, initial-scale=1' name='viewport'/>
 <!-- End twitter card -->
-<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=2395953434827222658&amp;zx=04510445-81ae-48dd-98a3-c594aad84c7e' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=2395953434827222658&amp;zx=04510445-81ae-48dd-98a3-c594aad84c7e' rel='stylesheet'/></noscript>
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
 
 </head>
 <body class='index mpstyle1 players2 '>
@@ -97,25 +93,71 @@ Do not remove this
 </div>
 <div class='card-body text-center'>
 <div class='form-horizontal'>
+
+
 <div class='form-group'>
-<label for='usr'> Enter Your MP4/M3U8/HLS Links </label>
-<input class='form-control' id='livelink' name='livelink' placeholder='' required='required' type='text' value=''/>
+  <label for='usr'>Enter Your MP4/M3U8/HLS Links</label>
+  <input 
+    class='form-control' 
+    id='livelink' 
+    name='livelink' 
+    placeholder='Enter your video link here' 
+    required='required' 
+    type='text' 
+    value='' 
+  />
 </div>
 <div class='form-group'>
-<label for='usr'><b>Choose Player</b></label>
-<select class='select form-control' id='playerytype' name='playerytype' required='required'>
-<option value='player3'>MP4/M3U8 (JWP Player)</option>
-<option value='player7'>MP4/M3U8 (VideoJS Player)</option>
-<option value='player1'>M3U8 Only (Plyr Player</option>
-<!-- <option value='player2'>Player 2 (clappr player)</option> -->
-<!--<option value='player4'>Player 4 (youtube player)</option> <option value='player5'>Player 5 (plyr dash player</option> <option value='player6'>Player 6 (radian player)</option> -->
-<!--<option value='player8'>Player 8 (twitch player)</option> <option value='player9'>Player 9 (Video player)</option> <option value='player10'>Player 10 (bitmoven player)</option> -->
-</select>
+  <label for='usr'><b>Choose Player</b></label>
+  <select 
+    class='select form-control' 
+    id='playerytype' 
+    name='playerytype' 
+    required='required'
+  >
+    <option value='player3'>MP4/M3U8 (JWP Player)</option>
+    <option value='player7'>MP4/M3U8 (VideoJS Player)</option>
+    <option value='player1'>M3U8 Only (Plyr Player)</option>
+  </select>
 </div>
-<!--<button class='btn btn-primary' id='trydemo' name='submit' type='button'>Play Now </button>-->
-<a href="your-link-here" target="_blank">
-  <button class='btn btn-primary' id='trydemo' name='submit' type='button'>Play Now</button>
+<a id="playerLink" target="_blank">
+  <button 
+    class='btn btn-primary' 
+    id='trydemo' 
+    name='submit' 
+    type='button'
+    onclick="redirectToPlayer()"
+  >
+    Play Now
+  </button>
 </a>
+
+<script>
+  function redirectToPlayer() {
+    // Get the input value and selected player type
+    const liveLink = document.getElementById('livelink').value;
+    const playerType = document.getElementById('playerytype').value;
+
+    // Validate the input link
+    if (!liveLink.trim()) {
+      alert('Please enter a valid MP4/M3U8/HLS link!');
+      return;
+    }
+
+    // Generate the player URL based on the selected player
+    let basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
+    if (playerType === 'player3') {
+      basePlayerUrl = 'https://example.com/jwp-player.html?url=';
+    } else if (playerType === 'player7') {
+      basePlayerUrl = 'https://example.com/videojs-player.html?url=';
+    } else if (playerType === 'player1') {
+      basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
+    }
+
+    // Set the href attribute of the link
+    document.getElementById('playerLink').href = basePlayerUrl + encodeURIComponent(liveLink);
+  }
+</script>
 
 </div>
 </div>
