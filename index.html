@@ -221,8 +221,125 @@ on the streaming server, otherwise it may not play.
 </script></center>
 
 
-	
-<div class='card my-1 p-1 w-100 text-center d-block'> Our Pages: <a href='/?view=contact'>Contact Us </a> | <a href='/?view=disclaimer'>Disclaimer</a> | <a href='/?view=privacypolicy'>Privacy Policy</a> | <a href='/?view=termsconditions'>Terms & Conditions</a>
+    <b:case value='contact'/> 
+    <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type=&quot;text&quot;],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      height: 150px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .success-message,
+    .error-message {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .form-group {
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <h1>Contact Us</h1>
+  <div id='contact-form'>
+    <div class='form-group'>
+      <label for='name'>Name:</label>
+      <input id='name' name='name' type='text'/>
+    </div>
+    <div class='form-group'>
+      <label for='email'>Email:</label>
+      <input id='email' name='email' type='text'/>
+    </div>
+    <div class='form-group'>
+      <label for='message'>Message:</label>
+      <textarea id='message' name='message'/>
+    </div>
+    <button onclick='submitForm()'>Submit</button>
+    <div id='status'/>
+  </div>
+
+  <script>
+    function submitForm() {
+      // Get form values
+      var name = document.getElementById(&quot;name&quot;).value;
+      var email = document.getElementById(&quot;email&quot;).value;
+      var message = document.getElementById(&quot;message&quot;).value;
+
+      // Check if all fields are filled
+      if (name &amp;&amp; email &amp;&amp; message) {
+        // Clear previous status
+        document.getElementById(&quot;status&quot;).innerHTML = &quot;&quot;;
+
+        // TODO: Send form data to server or perform desired action
+
+        // Display success message
+        document.getElementById(&quot;status&quot;).innerHTML = &quot;<p class='success-message'>Form submitted successfully!</p>&quot;;
+
+        // Clear form fields
+        document.getElementById(&quot;name&quot;).value = &quot;&quot;;
+        document.getElementById(&quot;email&quot;).value = &quot;&quot;;
+        document.getElementById(&quot;message&quot;).value = &quot;&quot;;
+      } else {
+        // Display error message if any field is empty
+        document.getElementById(&quot;status&quot;).innerHTML = &quot;<p class='error-message'>Please fill in all fields.</p>&quot;;
+      }
+    }
+  </script>
+
+
+	      
+<div class='card my-1 p-1 w-100 text-center d-block'> Our Pages: <a href='/?view=contact'>Contact Us </a> | 
+<a href='/?view=disclaimer'>Disclaimer</a> | <a href='/?view=privacypolicy'>Privacy Policy</a> | 
+<a href='/?view=termsconditions'>Terms & Conditions</a>
+
+	      
 </div></div>
 <div class='colors section' id='Colors'><div class='widget HTML' data-version='1' id='HTML301'>
 <style> div#sharbtn, div#relodbtn { background: #e72432; } </style>
