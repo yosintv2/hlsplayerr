@@ -126,18 +126,24 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     // Determine the player URL based on the selected player
     let basePlayerUrl;
     switch (playerType) {
+		    
       case 'player1':
-        basePlayerUrl = 'https://yosintv3.github.io/player/clappr/plyrio.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/plyrio.html?url=';
         break;
+		    
       case 'player2':
-        basePlayerUrl = 'https://yosintv3.github.io/player/clapper.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/clappr.html?url=';
         break;
+		    
       case 'player3':
         basePlayerUrl = 'https://yosintv3.github.io/player/hls.html?url=';
         break;
+		    
       case 'player4':
         basePlayerUrl = 'https://yosintv3.github.io/player/dplayer.html?url=';
-        break;      default:
+        break;      
+	    
+	default:
         alert('Invalid player selected!');
         return;
     }
