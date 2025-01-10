@@ -101,9 +101,10 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 <div class='form-group'>
   <label for='playerytype'><b> Choose Player </b></label>
   <select class='select form-control' id='playerytype' name='playerytype' required='required'>
-    <option value='player1'> MP4/M3U8 (JWP Player) </option>
+    <option value='player1'> MP4/M3U8 (Plyr Player) </option>
     <option value='player2'> MP4/M3U8 (Clappr Player) </option>
-    <option value='player3'> M3U8 Only (Plyr Player) </option>
+    <option value='player3'> M3U8 Only (VideoJS Player) </option>    
+    <option value='player4'> M3U8 Only ( DPlayer) </option>
   </select>
 </div>
 <a id="playerLink" target="_blank">
@@ -126,15 +127,17 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     let basePlayerUrl;
     switch (playerType) {
       case 'player1':
-        basePlayerUrl = 'https://yosintv2.github.io/bkp/dplayer.html?url=';
+        basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrio.html?url=';
         break;
       case 'player2':
-        basePlayerUrl = 'https://yosintv2.github.io/tv/clappr.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/clapper.html?url=';
         break;
       case 'player3':
-        basePlayerUrl = 'https://yosintv2.github.io/bkp/plyrr.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/hls.html?url=';
         break;
-      default:
+      case 'player4':
+        basePlayerUrl = 'https://yosintv3.github.io/player/dplayer.html?url=';
+        break;      default:
         alert('Invalid player selected!');
         return;
     }
