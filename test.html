@@ -94,7 +94,10 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 <div class='card-body text-center'>
 <div class='form-horizontal'>
 
+	
 
+<!-- Starts--->
+	
 <div class='form-group'>
   <label for='livelink'> Enter your MP4/M3U8/HLS links </label>
   <input class='form-control' id='livelink' name='livelink' placeholder='Enter your video link here' required='required' type='text' value='' />
@@ -102,10 +105,12 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 <div class='form-group'>
   <label for='playerytype'><b> Choose Player </b></label>
   <select class='select form-control' id='playerytype' name='playerytype' required='required'>
-    <option value='player1'> MP4/M3U8 - Plyr Player  </option>
-    <option value='player2'> MP4/M3U8 - Clappr Player  </option>
-    <option value='player3'> M3U8 Only - VideoJS Player  </option>    
-    <option value='player4'> M3U8 Only - DPlayer  </option>
+    <option value='player1'> MP4/M3U8 - Clappr Player  </option>
+    <option value='player2'> M3U8 Only - D'Player  </option>
+    <option value='player3'> MP4/M3U8 - Plyr Player  </option>
+    <option value='player4'> M3U8 Only - VideoJS Player  </option>    
+
+
   </select>
 </div>
 <a id="playerLink" target="_blank">
@@ -129,19 +134,19 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     switch (playerType) {
 		    
       case 'player1':
-        basePlayerUrl = 'https://yosintv3.github.io/player/plyrio.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/player1.html?url=';
         break;
 		    
       case 'player2':
-        basePlayerUrl = 'https://yosintv3.github.io/player/clappr.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/player2.html?url=';
         break;
 		    
       case 'player3':
-        basePlayerUrl = 'https://yosintv3.github.io/player/hls.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/player3.html?url=';
         break;
 		    
       case 'player4':
-        basePlayerUrl = 'https://yosintv3.github.io/player/dplayer.html?url=';
+        basePlayerUrl = 'https://yosintv3.github.io/player/player4.html?url=';
         break;      
 	    
 	default:
@@ -154,6 +159,9 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     playerLink.href = basePlayerUrl + liveLink;
   }
 </script>
+
+
+<!-- Endss--->
 
 
 
