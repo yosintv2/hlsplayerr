@@ -115,6 +115,7 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     <option value='player3'> MP4/M3U8 - Plyr Player  </option>
     <option value='player4'> M3U8 Only - VideoJS Player  </option>    
     <option value='player6'> Iframe - Iframe Player  </option>    
+    <option value='flv'> FLV - Online Player  </option>    
 
 
   </select>
@@ -161,6 +162,10 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 
       case 'player6':
         basePlayerUrl = 'https://yosintv3.github.io/player/iframe.html?url=';
+        break;   
+
+      case 'flv':
+        basePlayerUrl = 'https://yosintv3.github.io/player/flv.html?url=';
         break;   
 		    
 	default:
