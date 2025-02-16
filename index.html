@@ -100,31 +100,79 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 
 
 
-<!-- Starts--->
-	
-<div class='form-group'>
-  <label for='livelink'> Enter Your MP4/M3U8/HLS Link 👇👇  </label>
-  <input class='form-control' id='livelink' name='livelink' placeholder=' Paste Your Link Here...' required='required' type='text' value='' />
+<div class="form-group">
+  <label for="livelink"> Enter Your MP4/M3U8/HLS Link 👇👇  </label>
+  <input class="form-control" id="livelink" name="livelink" placeholder=" Paste Your Link Here..." required="required" type="text" value="" oninput="generateIframeUrl()" />
 </div>
-<div class='form-group'>
-  <label for='playerytype'><b> Choose Player </b></label>
-  <select class='select form-control' id='playerytype' name='playerytype' required='required'>
-    <option value='player2'> M3U8 Only - D'Player  </option>
-    <option value='player5'> MP4/M3U8 - JWPlayer  </option>
-    <option value='player1'> MP4/M3U8 - Clappr Player  </option>
-    <option value='player3'> MP4/M3U8 - Plyr Player  </option>
-    <option value='player4'> M3U8 Only - VideoJS Player  </option>    
-    <option value='player6'> Iframe - Iframe Player  </option>    
-    <option value='flv'> FLV - Online Player  </option>    
-
-
+<div class="form-group">
+  <label for="playerytype"><b> Choose Player </b></label>
+  <select class="select form-control" id="playerytype" name="playerytype" required="required" onchange="generateIframeUrl()">
+    <option value="player2"> M3U8 Only - D'Player  </option>
+    <option value="player5"> MP4/M3U8 - JWPlayer  </option>
+    <option value="player1"> MP4/M3U8 - Clappr Player  </option>
+    <option value="player3"> MP4/M3U8 - Plyr Player  </option>
+    <option value="player4"> M3U8 Only - VideoJS Player  </option>    
+    <option value="player6"> Iframe - Iframe Player  </option>    
+    <option value="flv"> FLV - Online Player  </option>
   </select>
 </div>
+
+<!-- Play Now Button -->
 <a id="playerLink" target="_blank">
-  <button class='btn btn-primary' id='trydemo' name='submit' type='button'onclick="redirectToPlayer()"> Play Now </button>
+  <button class="btn btn-primary" id="trydemo" name="submit" type="button" onclick="redirectToPlayer()"> Play Now </button>
 </a>
+  <div><br/></div>
+  
+<!-- Iframe URL Output Section -->
+<div id="iframeSection" class="form-group" style="display:none;">
+  <textarea id="iframeUrl" readonly class="form-control" ondblclick="copyIframeUrl()"></textarea>
+</div>
 
 <script>
+  // Function to update iframe URL dynamically
+  function generateIframeUrl() {
+    const liveLink = document.getElementById('livelink').value.trim();
+    const playerType = document.getElementById('playerytype').value;
+    const iframeUrlField = document.getElementById('iframeUrl');
+    const iframeSection = document.getElementById('iframeSection');
+
+    if (liveLink) {
+      let iframeUrl;
+      switch (playerType) {
+        case 'player1':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/player1.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player2':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/player2.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player3':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/player3.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player4':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/player4.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player5':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/player5.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player6':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/iframe.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'flv':
+          iframeUrl = `<iframe src="https://yosintv3.github.io/player/flv.html?url=${liveLink}" width="640" height="360" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        default:
+          iframeUrl = '';
+          break;
+      }
+
+      iframeUrlField.value = iframeUrl;
+      iframeSection.style.display = 'block';
+    } else {
+      iframeSection.style.display = 'none';
+    }
+  }
+
+  // Function to handle redirect to player page
   function redirectToPlayer() {
     // Get the input value and selected player type
     const liveLink = document.getElementById('livelink').value.trim();
@@ -139,48 +187,46 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
     // Determine the player URL based on the selected player
     let basePlayerUrl;
     switch (playerType) {
-		    
       case 'player1':
         basePlayerUrl = 'https://yosintv3.github.io/player/player1.html?url=';
         break;
-		    
       case 'player2':
         basePlayerUrl = 'https://yosintv3.github.io/player/player2.html?url=';
         break;
-		    
       case 'player3':
         basePlayerUrl = 'https://yosintv3.github.io/player/player3.html?url=';
         break;
-		    
       case 'player4':
         basePlayerUrl = 'https://yosintv3.github.io/player/player4.html?url=';
-        break;      
-
+        break;
       case 'player5':
         basePlayerUrl = 'https://yosintv3.github.io/player/player5.html?url=';
-        break;    
-
+        break;
       case 'player6':
         basePlayerUrl = 'https://yosintv3.github.io/player/iframe.html?url=';
-        break;   
-
+        break;
       case 'flv':
         basePlayerUrl = 'https://yosintv3.github.io/player/flv.html?url=';
-        break;   
-		    
-	default:
+        break;
+      default:
         alert('Invalid player selected!');
         return;
     }
 
-   // Set the href attribute of the link without encoding
+    // Set the href attribute of the link with the selected player URL and user input
     const playerLink = document.getElementById('playerLink');
     playerLink.href = basePlayerUrl + liveLink;
   }
+
+  // Double-tap to copy iframe URL to clipboard
+  function copyIframeUrl() {
+    const iframeUrlField = document.getElementById('iframeUrl');
+    iframeUrlField.select();
+    document.execCommand('copy');
+    alert('Iframe URL copied to clipboard!');
+  }
 </script>
 
-
-<!-- Endss--->
 
 
 
@@ -289,12 +335,8 @@ More Players:
 </div><div class='widget HTML' data-version='1' id='HTML302'>
 <style> .play-wrapper, .video-js .vjs-big-play-button, .plyr__control--overlaid, button.rmp-button.rmp-overlay-button.rmp-color-bg{ background-color: #e72432 !important; } </style>
 </div><div class='widget HTML' data-version='1' id='HTML303'>
-<style>
-          
-          #tlgrm_message a {
-    background:  #0088cc;
-}
-     </style>
+
+  
 </div></div>
 
 
