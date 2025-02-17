@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html dir='ltr' lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
+<html dir='ltr' lang='en' xmlns='http://www.w3.org/1999/xhtml' 
+xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' 
+xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
 <head>
 
 <link href='https://fonts.googleapis.com' rel='preconnect'/>
@@ -60,14 +62,22 @@ bottom: unset !important;
 z-index: 999;
 }
 
+
+h2 {
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
 </style>
 
 <title> HLS Player - Free M3U8, MP4, DASH Player</title>
 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'/>
+<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
-<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'/>
+<script src='https://www.hls-player.net/script.js'></script>
 
 
 <style>
@@ -112,20 +122,6 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 </center>
 
 
-	
-<!-- yosinlive <div class='listcolor'><a href=' https://bit.ly/459HKtV ' rel='follow'><div><div><img height='50' src=' https://i.imgur.com/lsdi2In.png ' width='50'/></div><div>SRH vs RCB - Hindi Live </div></div></a></div> <div class='listcolor'><a href=' https://bit.ly/459HKtV ' rel='follow'><div><div><img height='50' src=' https://i.imgur.com/lsdi2In.png ' width='50'/></div><div>SRH vs RCB - English Live </div></div></a></div> <div class='listcolor'><a href=' https://bit.ly/459HKtV ' rel='follow'><div><div><img height='50' src=' https://i.imgur.com/lsdi2In.png ' width='50'/></div><div>SRH vs RCB - Bhojpuri Live </div></div></a></div>-->
-<!--alltools-->
-<!--
-<div class='card my-1 p-1 w-100 text-center d-block'> All Players: 
-        <a href='?view=html5-m3u8-player'> M3U8 Player </a> | 
-        <a href='/?view=dashplayer'> Dash Player</a> |
-        <a href='?view=hls-stream-tester'> HLS Stream Tester </a> | 
-        <a href='/?view=free-m3u8-player'> Free M3u8 Player</a> | 
-        <a href='?view=html5-m3u8-player'> HTML5 M3U8 Player </a> | 
-        <a href='/?view=m3u8-player-html5'> M3U8 Player HTML 5</a> |
-        <a href='/?view=m3u8-stream-player'> M3U8 Stream Player</a>
-</div>
--->
 
 <div class='w-m-70'>
 <div class='card mt-3'>
@@ -134,8 +130,6 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 </div>
 <div class='card-body text-center'>
 <div class='form-horizontal'>
-
-
 
 
 <div class="form-group">
@@ -164,107 +158,8 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 <!-- Iframe URL Output Section -->
 <div id="iframeSection" class="form-group" style="display:none;">
   <textarea id="iframeUrl" readonly class="form-control" ondblclick="copyIframeUrl()"></textarea>
+  <small id="copyHint" style="display:block; margin-top:5px; color: #888;">Double-click to copy</small>
 </div>
-
-<script>
-  // Function to update iframe URL dynamically
-  function generateIframeUrl() {
-    const liveLink = document.getElementById('livelink').value.trim();
-    const playerType = document.getElementById('playerytype').value;
-    const iframeUrlField = document.getElementById('iframeUrl');
-    const iframeSection = document.getElementById('iframeSection');
-
-    if (liveLink) {
-      let iframeUrl;
-      switch (playerType) {
-        case 'player1':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/player1.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player2':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/player2.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player3':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/player3.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player4':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/player4.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player5':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/player5.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player6':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/iframe.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'flv':
-          iframeUrl = `<iframe src="https://tinyurl.com/hls-player/flv.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        default:
-          iframeUrl = '';
-          break;
-      }
-
-      iframeUrlField.value = iframeUrl;
-      iframeSection.style.display = 'block';
-    } else {
-      iframeSection.style.display = 'none';
-    }
-  }
-
-  // Function to handle redirect to player page
-  function redirectToPlayer() {
-    // Get the input value and selected player type
-    const liveLink = document.getElementById('livelink').value.trim();
-    const playerType = document.getElementById('playerytype').value;
-
-    // Validate the input link
-    if (!liveLink) {
-      alert('Please enter a valid MP4/M3U8/HLS link!');
-      return;
-    }
-
-    // Determine the player URL based on the selected player
-    let basePlayerUrl;
-    switch (playerType) {
-      case 'player1':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/player1.html?url=';
-        break;
-      case 'player2':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/player2.html?url=';
-        break;
-      case 'player3':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/player3.html?url=';
-        break;
-      case 'player4':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/player4.html?url=';
-        break;
-      case 'player5':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/player5.html?url=';
-        break;
-      case 'player6':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/iframe.html?url=';
-        break;
-      case 'flv':
-        basePlayerUrl = 'https://tinyurl.com/hls-player/flv.html?url=';
-        break;
-      default:
-        alert('Invalid player selected!');
-        return;
-    }
-
-    // Set the href attribute of the link with the selected player URL and user input
-    const playerLink = document.getElementById('playerLink');
-    playerLink.href = basePlayerUrl + liveLink;
-  }
-
-  // Double-tap to copy iframe URL to clipboard
-  function copyIframeUrl() {
-    const iframeUrlField = document.getElementById('iframeUrl');
-    iframeUrlField.select();
-    document.execCommand('copy');
-    alert('Iframe URL copied to clipboard!');
-  }
-</script>
-
 
 
 
@@ -277,15 +172,22 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
 
 
         <!-- Introduction Section -->
-        <section>
-            <h2> What is an M3U8 Player?</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading"> What is an M3U8 Player?</h2>
             <p>Streaming video is more popular than ever, and <strong>M3U8 player online</strong> tools have made it easier to watch <strong>HLS (HTTP Live Streaming) files</strong> without any software installation. Whether you want to <strong>play M3U8 online</strong>, test an <strong>HLS stream player</strong>, or use an <strong>M3U8 web player</strong>, <strong>HLS-Player.net</strong> is your go-to platform.</p>
             <p>Our <strong>free M3U8 player online</strong> supports <strong>HLS video player functionality</strong>, allowing users to enjoy seamless playback across devices. Whether you're streaming <strong>IPTV, live broadcasts, or video-on-demand (VOD) content</strong>, our <strong>HLS player online</strong> delivers <strong>high-quality playback</strong> without buffering.</p>
-        </section>
+
+</div>
+</div>
+</div>             
 
         <!-- Why Use an Online M3U8 Player Section -->
-        <section>
-            <h2>Why Use an Online M3U8 Player?</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading">Why Use an Online M3U8 Player?</h2>
             <p>Using an <strong>HLS player online</strong> has several advantages:</p>
             <ul>
                 <li><strong>Play M3U8 file online</strong> – No need for downloads or third-party software.</li>
@@ -294,11 +196,16 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
                 <li><strong>M3U8 tester online</strong> – Check if an <strong>M3U8 stream</strong> is working before embedding it.</li>
                 <li><strong>Convert HLS to MP4 online</strong> – Download <strong>HLS streaming player</strong> videos for offline viewing.</li>
             </ul>
-            </section>
+
+</div>
+</div>
+</div>             
 
         <!-- How to Play M3U8 Files Online Section -->
-        <section>
-            <h2>How to Play M3U8 Files Online?</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading">How to Play M3U8 Files Online?</h2>
             <p>Playing M3U8 files is easy with <strong>HLS-Player.net</strong>. Follow these steps:</p>
             <h3>Step 1 – Copy the M3U8 Link</h3>
             <p>Find an <strong>M3U8 link online</strong> from an IPTV source or live streaming website.</p>
@@ -308,11 +215,16 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
             <p>Press <strong>Play</strong> to start watching your stream instantly on our <strong>HLS player - M3U8 streaming player</strong>.</p>
             <p><strong>Tip:</strong> If the stream doesn’t load, use our <strong>M3U8 tester</strong> to check if the link is working or try a different <strong>HLS video player online</strong>.</p>
 
-		        </section>
+
+</div>
+</div>
+</div>             
 
         <!-- Features of HLS-Player.net Section -->
-        <section>
-            <h2>Features of HLS-Player.net</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading">Features of HLS-Player.net</h2>
             <h3>1. Free M3U8 Player Online</h3>
             <p>No registration required! Our <strong>M3U8 web player</strong> is a <strong>free HLS player online</strong> that works instantly.</p>
             <h3>2. M3U8 Tester & Link Checker</h3>
@@ -324,11 +236,16 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
             <h3>5. IPTV & Live Streaming Support</h3>
             <p>Play <strong>IPTV M3U8 files</strong>, <strong>HLS stream online</strong>, and <strong>M3U8 video player online</strong> content effortlessly.</p>
 
-		        </section>
+
+</div>
+</div>
+</div>             
 
         <!-- How to Find M3U8 Links for Streaming Section -->
-        <section>
-            <h2>How to Find M3U8 Links for Streaming?</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading">How to Find M3U8 Links for Streaming?</h2>
             <p>If you’re looking for <strong>M3U8 links</strong>, here are some sources:</p>
             <ul>
                 <li><strong>IPTV Providers</strong> – Many IPTV services offer <strong>M3U8 playlists</strong>.</li>
@@ -337,22 +254,29 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
                 <li><strong>Developer Tools</strong> – Extract <strong>M3U8 links</strong> from video players using browser dev tools.</li>
             </ul>
 
-   </section>
+                       </div>
+                       </div>
+                       </div>             
 
         <!-- Common Issues with M3U8 Playback Section -->
-        <section>
-            <h2>Common Issues with M3U8 Playback (and Fixes)</h2>
+            <div class="col-lg-12 mb-4">                 <div class="card shadow-sm">                     <div class="card-body">
+            <h2 class="section-heading">Common Issues with M3U8 Playback (and Fixes)</h2>
             <h3>🔹 Problem: Video Not Playing?</h3>
             <p><strong>Solution:</strong> Check if the <strong>M3U8 URL</strong> is active using an <strong>M3U8 tester online</strong>.</p>
             <h3>🔹 Problem: Playback Buffering?</h3>
             <p><strong>Solution:</strong> Use a <strong>fast internet connection</strong> and try a different <strong>HLS stream player</strong>.</p>
             <h3>🔹 Problem: Unsupported Browser?</h3>
             <p><strong>Solution:</strong> Use <strong>Chrome, Firefox, or Edge</strong>, which support <strong>HLS video players</strong> natively.</p>
-           </section>
+
+</div>
+</div>
+</div>             
 
         <!-- FAQ Section -->
-        <section>
-            <h2>FAQ – Frequently Asked Questions</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading">FAQ – Frequently Asked Questions</h2>
             <h3>Q1: What is an M3U8 file?</h3>
             <p>An <strong>M3U8 file</strong> is a playlist format for <strong>HLS streaming</strong>, commonly used for <strong>IPTV, VOD, and live broadcasts</strong>.</p>
             <h3>Q2: Can I play M3U8 files on mobile?</h3>
@@ -363,11 +287,16 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
             <p>Yes! Our <strong>HLS to MP4 online</strong> tool allows you to download <strong>M3U8 files as MP4</strong>.</p>
             <h3>Q5: Does HLS-Player.net support M3U8 playlist streaming?</h3>
             <p>Absolutely! You can <strong>play any M3U8 file online</strong> and stream playlists easily.</p>
-	    </section>
+
+</div>
+</div>
+</div>             
 
         <!-- Why Choose HLS-Player.net Section -->
-        <section>
-            <h2>Why Choose HLS-Player.net for Streaming?</h2>
+            <div class="col-lg-12 mb-4">
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="section-heading">Why Choose HLS-Player.net for Streaming?</h2>
             <ul>
                 <li><strong>Fast & Secure</strong> – Play <strong>M3U8 streams online</strong> without delays.</li>
                 <li><strong>No Software Needed</strong> – Use our <strong>HLS player - M3U8 streaming player</strong> instantly.</li>
@@ -375,8 +304,11 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
                 <li><strong>100% Free</strong> – No subscriptions, no hidden fees.</li>
             </ul>
             <p><strong>Start streaming now with HLS-Player.net!</strong></p>
-        </section>
-    </div>
+
+</div>
+</div>
+</div>             
+</div>
   
   
 </div>
