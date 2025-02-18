@@ -69,21 +69,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-    /* Default button style */
-    .btn-custom {
-        background-color: white;
-        border: 1px solid black;
-        color: black;
-    }
-
-    /* Active state */
-    .btn-active {
-        background-color: #0000ff; /* Blue background */
-        color: white;
-        border: 2px solid #0000ff; /* Border color to match the background */
-    }
-
-	
 </style>
 
 <title> HLS Player - Free M3U8, MP4, DASH Player</title>
@@ -135,29 +120,6 @@ div#a_d_s_wait{left:0!important;right:unset!important;} div#a_d_s_cnt{z-index:99
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </center>
-
-
-<div class="section section-sm section-gray">
-  <div class="container-fluid text-center">
-    <div class="btn-group" role="group" aria-label="Video Type">
-      <a href="#mp4" class="btn btn-custom" id="mp4-button" onclick="setActive('mp4')">MP4 Player </a>
-      <a href="#dash" class="btn btn-custom" id="dash-button" onclick="setActive('dash')">DASH/MPD Player</a>
-      <a href="#hls" class="btn btn-custom" id="hls-button" onclick="setActive('hls')">HLS/M3U8 Player</a>
-    </div>
-  </div>
-</div>
-
-<script>
-  function setActive(player) {
-    // Remove 'btn-active' class from all buttons
-    document.getElementById('mp4-button').classList.remove('btn-active');
-    document.getElementById('dash-button').classList.remove('btn-active');
-    document.getElementById('hls-button').classList.remove('btn-active');
-    
-    // Add 'btn-active' class to the selected button
-    document.getElementById(player + '-button').classList.add('btn-active');
-  }
-</script>
 
 	
 
