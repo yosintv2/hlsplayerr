@@ -1,1 +1,96 @@
-(function(_0x4a5ac5,_0x17ef7b){const _0x546738=_0x3f7a,_0x5e4e68=_0x4a5ac5();while(!![]){try{const _0x24cbeb=-parseInt(_0x546738(0x173))/0x1+-parseInt(_0x546738(0x168))/0x2*(-parseInt(_0x546738(0x177))/0x3)+-parseInt(_0x546738(0x15c))/0x4*(parseInt(_0x546738(0x166))/0x5)+parseInt(_0x546738(0x15f))/0x6+-parseInt(_0x546738(0x15e))/0x7+-parseInt(_0x546738(0x158))/0x8*(parseInt(_0x546738(0x16f))/0x9)+parseInt(_0x546738(0x154))/0xa;if(_0x24cbeb===_0x17ef7b)break;else _0x5e4e68['push'](_0x5e4e68['shift']());}catch(_0x39673c){_0x5e4e68['push'](_0x5e4e68['shift']());}}}(_0x348d,0x498aa));function _0x348d(){const _0x264fda=['https://tinyurl.com/hls-player/iframe.html?url=','getElementById','<iframe\x20src=\x22https://tinyurl.com/hls-player/player3.html?url=','copy','2930qKcdOC','livelink','12278wnSdKo','https://tinyurl.com/hls-player/player1.html?url=','player6','<iframe\x20src=\x22https://tinyurl.com/hls-player/player5.html?url=','display','block','iframeSection','1061523aoxsUK','player3','playerytype','trim','130777hnEIYN','select','none','<iframe\x20src=\x22https://tinyurl.com/hls-player/iframe.html?url=','204OuoJmW','https://tinyurl.com/hls-player/player5.html?url=','Invalid\x20player\x20selected!','player5','Iframe\x20URL\x20copied\x20to\x20clipboard!','style','3331260RzjAtz','https://tinyurl.com/hls-player/player4.html?url=','value','player4','16pwFICC','Please\x20enter\x20a\x20valid\x20MP4/M3U8/HLS\x20link!','https://tinyurl.com/hls-player/player3.html?url=','\x22\x20width=\x22100%\x22\x20height=\x22100%\x22\x20frameborder=\x220\x22\x20allowfullscreen></iframe>','244VhBNtN','flv','4182598LeoqED','3303474EUhpZZ','<iframe\x20src=\x22https://tinyurl.com/hls-player/player4.html?url=','player2'];_0x348d=function(){return _0x264fda;};return _0x348d();}function generateIframeUrl(){const _0x3a70aa=_0x3f7a,_0x3c13a7=document['getElementById'](_0x3a70aa(0x167))['value']['trim'](),_0x567976=document[_0x3a70aa(0x163)](_0x3a70aa(0x171))[_0x3a70aa(0x156)],_0x4fd61d=document[_0x3a70aa(0x163)]('iframeUrl'),_0x14c283=document['getElementById'](_0x3a70aa(0x16e));if(_0x3c13a7){let _0x5db171;switch(_0x567976){case'player1':_0x5db171='<iframe\x20src=\x22https://tinyurl.com/hls-player/player1.html?url='+_0x3c13a7+_0x3a70aa(0x15b);break;case'player2':_0x5db171='<iframe\x20src=\x22https://tinyurl.com/hls-player/player2.html?url='+_0x3c13a7+_0x3a70aa(0x15b);break;case _0x3a70aa(0x170):_0x5db171=_0x3a70aa(0x164)+_0x3c13a7+_0x3a70aa(0x15b);break;case _0x3a70aa(0x157):_0x5db171=_0x3a70aa(0x160)+_0x3c13a7+_0x3a70aa(0x15b);break;case _0x3a70aa(0x151):_0x5db171=_0x3a70aa(0x16b)+_0x3c13a7+_0x3a70aa(0x15b);break;case _0x3a70aa(0x16a):_0x5db171=_0x3a70aa(0x176)+_0x3c13a7+_0x3a70aa(0x15b);break;case _0x3a70aa(0x15d):_0x5db171='<iframe\x20src=\x22https://tinyurl.com/hls-player/flv.html?url='+_0x3c13a7+_0x3a70aa(0x15b);break;default:_0x5db171='';break;}_0x4fd61d[_0x3a70aa(0x156)]=_0x5db171,_0x14c283[_0x3a70aa(0x153)]['display']=_0x3a70aa(0x16d);}else _0x14c283[_0x3a70aa(0x153)][_0x3a70aa(0x16c)]=_0x3a70aa(0x175);}function _0x3f7a(_0x3362b0,_0x20e0f7){const _0x348dca=_0x348d();return _0x3f7a=function(_0x3f7a0f,_0x59e0b4){_0x3f7a0f=_0x3f7a0f-0x150;let _0x47c37e=_0x348dca[_0x3f7a0f];return _0x47c37e;},_0x3f7a(_0x3362b0,_0x20e0f7);}function redirectToPlayer(){const _0x4ea975=_0x3f7a,_0x2921b9=document['getElementById'](_0x4ea975(0x167))[_0x4ea975(0x156)][_0x4ea975(0x172)](),_0x307ddd=document[_0x4ea975(0x163)](_0x4ea975(0x171))[_0x4ea975(0x156)];if(!_0x2921b9){alert(_0x4ea975(0x159));return;}let _0x420d38;switch(_0x307ddd){case'player1':_0x420d38=_0x4ea975(0x169);break;case _0x4ea975(0x161):_0x420d38='https://tinyurl.com/hls-player/player2.html?url=';break;case _0x4ea975(0x170):_0x420d38=_0x4ea975(0x15a);break;case _0x4ea975(0x157):_0x420d38=_0x4ea975(0x155);break;case _0x4ea975(0x151):_0x420d38=_0x4ea975(0x178);break;case'player6':_0x420d38=_0x4ea975(0x162);break;case _0x4ea975(0x15d):_0x420d38='https://tinyurl.com/hls-player/flv.html?url=';break;default:alert(_0x4ea975(0x150));return;}const _0x48e3e7=document[_0x4ea975(0x163)]('playerLink');_0x48e3e7['href']=_0x420d38+_0x2921b9;}function copyIframeUrl(){const _0x1f3947=_0x3f7a,_0x146072=document[_0x1f3947(0x163)]('iframeUrl');_0x146072[_0x1f3947(0x174)](),document['execCommand'](_0x1f3947(0x165)),alert(_0x1f3947(0x152));}
+// Function to update iframe URL dynamically
+  function generateIframeUrl() {
+    const liveLink = document.getElementById('livelink').value.trim();
+    const playerType = document.getElementById('playerytype').value;
+    const iframeUrlField = document.getElementById('iframeUrl');
+    const iframeSection = document.getElementById('iframeSection');
+
+    if (liveLink) {
+      let iframeUrl;
+      switch (playerType) {
+        case 'player1':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/player1.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player2':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/player2.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player3':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/player3.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player4':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/player4.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player5':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/player5.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'player6':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/iframe.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        case 'flv':
+          iframeUrl = `<iframe src="https://cr7tv.github.io/hls-player/flv.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          break;
+        default:
+          iframeUrl = '';
+          break;
+      }
+
+      iframeUrlField.value = iframeUrl;
+      iframeSection.style.display = 'block';
+    } else {
+      iframeSection.style.display = 'none';
+    }
+  }
+
+  // Function to handle redirect to player page
+  function redirectToPlayer() {
+    // Get the input value and selected player type
+    const liveLink = document.getElementById('livelink').value.trim();
+    const playerType = document.getElementById('playerytype').value;
+
+    // Validate the input link
+    if (!liveLink) {
+      alert('Please enter a valid MP4/M3U8/HLS link!');
+      return;
+    }
+
+    // Determine the player URL based on the selected player
+    let basePlayerUrl;
+    switch (playerType) {
+      case 'player1':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/player1.html?url=';
+        break;
+      case 'player2':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/player2.html?url=';
+        break;
+      case 'player3':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/player3.html?url=';
+        break;
+      case 'player4':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/player4.html?url=';
+        break;
+      case 'player5':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/player5.html?url=';
+        break;
+      case 'player6':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/iframe.html?url=';
+        break;
+      case 'flv':
+        basePlayerUrl = 'https://cr7tv.github.io/hls-player/flv.html?url=';
+        break;
+      default:
+        alert('Invalid player selected!');
+        return;
+    }
+
+    // Set the href attribute of the link with the selected player URL and user input
+    const playerLink = document.getElementById('playerLink');
+    playerLink.href = basePlayerUrl + liveLink;
+  }
+
+  // Double-tap to copy iframe URL to clipboard
+  function copyIframeUrl() {
+    const iframeUrlField = document.getElementById('iframeUrl');
+    iframeUrlField.select();
+    document.execCommand('copy');
+    alert('Iframe URL copied to clipboard!');
+  }
