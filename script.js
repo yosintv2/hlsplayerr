@@ -9,25 +9,25 @@
       let iframeUrl;
       switch (playerType) {
         case 'player1':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/player1.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/player1.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         case 'player2':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/player2.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/player2.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         case 'player3':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/player3.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/player3.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         case 'player4':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/player4.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/player4.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         case 'player5':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/player5.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/player5.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         case 'player6':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/iframe.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/iframe.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         case 'flv':
-          iframeUrl = `<iframe src="https://cr7tv.github.io/player/flv.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+          iframeUrl = `<iframe src=https://yosintv.github.io/player/flv.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
           break;
         default:
           iframeUrl = '';
