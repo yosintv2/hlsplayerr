@@ -57,25 +57,25 @@
     let basePlayerUrl;
     switch (playerType) {
       case 'player1':
-        basePlayerUrl = 'https://cr7tv.github.io/player/player1.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/player1.html?url=';
         break;
       case 'player2':
-        basePlayerUrl = 'https://cr7tv.github.io/player/player2.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/player2.html?url=';
         break;
       case 'player3':
-        basePlayerUrl = 'https://cr7tv.github.io/player/player3.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/player3.html?url=';
         break;
       case 'player4':
-        basePlayerUrl = 'https://cr7tv.github.io/player/player4.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/player4.html?url=';
         break;
       case 'player5':
-        basePlayerUrl = 'https://cr7tv.github.io/player/player5.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/player5.html?url=';
         break;
       case 'player6':
-        basePlayerUrl = 'https://cr7tv.github.io/player/iframe.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/iframe.html?url=';
         break;
       case 'flv':
-        basePlayerUrl = 'https://cr7tv.github.io/player/flv.html?url=';
+        basePlayerUrl = 'https://yosintv.github.io/player/flv.html?url=';
         break;
       default:
         alert('Invalid player selected!');
