@@ -1,96 +1,118 @@
+// Function to shorten URL using TinyURL API
+async function shortenUrl(longUrl) {
+    try {
+        const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
+        const shortUrl = await response.text();
+        if (shortUrl.startsWith('https://tinyurl.com/')) {
+            return shortUrl;
+        } else {
+            throw new Error('Invalid TinyURL response');
+        }
+    } catch (error) {
+        console.error('Error shortening URL:', error);
+        return longUrl; // Fallback to original URL if shortening fails
+    }
+}
+
 // Function to update iframe URL dynamically
-  function generateIframeUrl() {
+async function generateIframeUrl() {
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
     const iframeUrlField = document.getElementById('iframeUrl');
     const iframeSection = document.getElementById('iframeSection');
 
     if (liveLink) {
-      let iframeUrl;
-      switch (playerType) {
-        case 'player1':
-          iframeUrl = `<iframe src=https://7player.pages.dev/player1.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player2':
-          iframeUrl = `<iframe src=https://7player.pages.dev/player2.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player3':
-          iframeUrl = `<iframe src=https://7player.pages.dev/player3.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player4':
-          iframeUrl = `<iframe src=https://7player.pages.dev/player4.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player5':
-          iframeUrl = `<iframe src=https://7player.pages.dev/player5.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'player6':
-          iframeUrl = `<iframe src=https://7player.pages.dev/iframe.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        case 'flv':
-          iframeUrl = `<iframe src=https://7player.pages.dev/flv.html?url=${liveLink}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-          break;
-        default:
-          iframeUrl = '';
-          break;
-      }
+        let baseUrl;
+        switch (playerType) {
+            case 'player1':
+                baseUrl = 'https://7player.pages.dev/player1.html?url=' + encodeURIComponent(liveLink);
+                break;
+            case 'player2':
+                baseUrl = 'https://7player.pages.dev/player2.html?url=' + encodeURIComponent(liveLink);
+                break;
+            case 'player3':
+                baseUrl = 'https://7player.pages.dev/player3.html?url=' + encodeURIComponent(liveLink);
+                break;
+            case 'player4':
+                baseUrl = 'https://7player.pages.dev/player4.html?url=' + encodeURIComponent(liveLink);
+                break;
+            case 'player5':
+                baseUrl = 'https://7player.pages.dev/player5.html?url=' + encodeURIComponent(liveLink);
+                break;
+            case 'player6':
+                baseUrl = 'https://7player.pages.dev/iframe.html?url=' + encodeURIComponent(liveLink);
+                break;
+            case 'flv':
+                baseUrl = 'https://7player.pages.dev/flv.html?url=' + encodeURIComponent(liveLink);
+                break;
+            default:
+                baseUrl = '';
+                break;
+        }
 
-      iframeUrlField.value = iframeUrl;
-      iframeSection.style.display = 'block';
+        // Shorten the base URL using TinyURL
+        const shortenedUrl = await shortenUrl(baseUrl);
+
+        // Construct the iframe tag with the shortened URL
+        const iframeUrl = `<iframe src="${shortenedUrl}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
+
+        iframeUrlField.value = iframeUrl;
+        iframeSection.style.display = 'block';
     } else {
-      iframeSection.style.display = 'none';
+        iframeSection.style.display = 'none';
     }
-  }
+}
 
-  // Function to handle redirect to player page
-  function redirectToPlayer() {
+// Function to handle redirect to player page
+function redirectToPlayer() {
     // Get the input value and selected player type
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
 
     // Validate the input link
     if (!liveLink) {
-      alert('Please enter a valid MP4/M3U8/HLS link!');
-      return;
+        alert('Please enter a valid MP4/M3U8/HLS link!');
+        return;
     }
 
     // Determine the player URL based on the selected player
     let basePlayerUrl;
     switch (playerType) {
-      case 'player1':
-        basePlayerUrl = 'https://7player.pages.dev/player1.html?url=';
-        break;
-      case 'player2':
-        basePlayerUrl = 'https://7player.pages.dev/player2.html?url=';
-        break;
-      case 'player3':
-        basePlayerUrl = 'https://7player.pages.dev/player3.html?url=';
-        break;
-      case 'player4':
-        basePlayerUrl = 'https://7player.pages.dev/player4.html?url=';
-        break;
-      case 'player5':
-        basePlayerUrl = 'https://7player.pages.dev/player5.html?url=';
-        break;
-      case 'player6':
-        basePlayerUrl = 'https://7player.pages.dev/iframe.html?url=';
-        break;
-      case 'flv':
-        basePlayerUrl = 'https://7player.pages.dev/flv.html?url=';
-        break;
-      default:
-        alert('Invalid player selected!');
-        return;
+        case 'player1':
+            basePlayerUrl = 'https://7player.pages.dev/player1.html?url=';
+            break;
+        case 'player2':
+            basePlayerUrl = 'https://7player.pages.dev/player2.html?url=';
+            break;
+        case 'player3':
+            basePlayerUrl = 'https://7player.pages.dev/player3.html?url=';
+            break;
+        case 'player4':
+            basePlayerUrl = 'https://7player.pages.dev/player4.html?url=';
+            break;
+        case 'player5':
+            basePlayerUrl = 'https://7player.pages.dev/player5.html?url=';
+            break;
+        case 'player6':
+            basePlayerUrl = 'https://7player.pages.dev/iframe.html?url=';
+            break;
+        case 'flv':
+            basePlayerUrl = 'https://7player.pages.dev/flv.html?url=';
+            break;
+        default:
+            alert('Invalid player selected!');
+            return;
     }
 
     // Set the href attribute of the link with the selected player URL and user input
     const playerLink = document.getElementById('playerLink');
     playerLink.href = basePlayerUrl + liveLink;
-  }
+}
 
-  // Double-tap to copy iframe URL to clipboard
-  function copyIframeUrl() {
+// Double-tap to copy iframe URL to clipboard
+function copyIframeUrl() {
     const iframeUrlField = document.getElementById('iframeUrl');
     iframeUrlField.select();
     document.execCommand('copy');
     alert('Iframe URL copied to clipboard!');
-  }
+}
