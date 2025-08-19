@@ -1,7 +1,7 @@
 // Function to shorten URL using TinyURL API
 async function shortenUrl(longUrl) {
     try {
-        const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
+        const response = await fetch(`https://tinyurl.com/api-create.php?url=${longUrl}`);
         const shortUrl = await response.text();
         if (shortUrl.startsWith('https://tinyurl.com/')) {
             return shortUrl;
@@ -23,35 +23,44 @@ async function generateIframeUrl() {
 
     if (liveLink) {
         let baseUrl;
+        let plainBaseUrl;
         switch (playerType) {
             case 'player1':
                 baseUrl = 'https://7player.pages.dev/player1.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/player1.html?url=' + liveLink;
                 break;
             case 'player2':
                 baseUrl = 'https://7player.pages.dev/player2.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/player2.html?url=' + liveLink;
                 break;
             case 'player3':
                 baseUrl = 'https://7player.pages.dev/player3.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/player3.html?url=' + liveLink;
                 break;
             case 'player4':
                 baseUrl = 'https://7player.pages.dev/player4.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/player4.html?url=' + liveLink;
                 break;
             case 'player5':
                 baseUrl = 'https://7player.pages.dev/player5.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/player5.html?url=' + liveLink;
                 break;
             case 'player6':
                 baseUrl = 'https://7player.pages.dev/iframe.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/iframe.html?url=' + liveLink;
                 break;
             case 'flv':
                 baseUrl = 'https://7player.pages.dev/flv.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://7player.pages.dev/flv.html?url=' + liveLink;
                 break;
             default:
                 baseUrl = '';
+                plainBaseUrl = '';
                 break;
         }
 
-        // Shorten the base URL using TinyURL
-        const shortenedUrl = await shortenUrl(baseUrl);
+        // Shorten the plain base URL using TinyURL
+        const shortenedUrl = await shortenUrl(plainBaseUrl);
 
         // Construct the iframe tag with the shortened URL
         const iframeUrl = `<iframe src="${shortenedUrl}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
