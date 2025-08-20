@@ -26,32 +26,32 @@ async function generateIframeUrl() {
         let plainBaseUrl;
         switch (playerType) {
             case 'player1':
-                baseUrl = '/players/player1.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/player1.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + liveLink;
                 break;
             case 'player2':
-                baseUrl = '/players/player2.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/player2.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + liveLink;
                 break;
             case 'player3':
-                baseUrl = '/players/player3.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/player3.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + liveLink;
                 break;
             case 'player4':
-                baseUrl = '/players/player4.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/player4.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + liveLink;
                 break;
             case 'player5':
-                baseUrl = '/players/player5.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/player5.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + liveLink;
                 break;
             case 'player6':
-                baseUrl = '/players/iframe.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/iframe.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + liveLink;
                 break;
             case 'flv':
-                baseUrl = '/players/flv.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = '/players/flv.html?url=' + liveLink;
+                baseUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + encodeURIComponent(liveLink);
+                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + liveLink;
                 break;
             default:
                 baseUrl = '';
@@ -88,25 +88,25 @@ function redirectToPlayer() {
     let basePlayerUrl;
     switch (playerType) {
         case 'player1':
-            basePlayerUrl = '/players/player1.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=';
             break;
         case 'player2':
-            basePlayerUrl = '/players/player2.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=';
             break;
         case 'player3':
-            basePlayerUrl = '/players/player3.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=';
             break;
         case 'player4':
-            basePlayerUrl = '/players/player4.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=';
             break;
         case 'player5':
-            basePlayerUrl = '/players/player5.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=';
             break;
         case 'player6':
-            basePlayerUrl = '/players/iframe.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=';
             break;
         case 'flv':
-            basePlayerUrl = '/players/flv.html?url=';
+            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=';
             break;
         default:
             alert('Invalid player selected!');
