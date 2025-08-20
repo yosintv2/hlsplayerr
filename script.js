@@ -1,5 +1,5 @@
 // List of allowed domains
-const allowedDomains = ['hls-player.net','dplayerr.blogspot.com', 'hlsplayernet.pages.dev'];
+const allowedDomains = ['hls-player.net', 'hlsplayernet.pages.dev'];
 
 // Function to check if current domain is allowed
 function isDomainAllowed() {
@@ -7,10 +7,18 @@ function isDomainAllowed() {
     return allowedDomains.includes(currentDomain);
 }
 
+// Function to redirect to main site if domain is not allowed
+function redirectIfNotAllowed() {
+    if (!isDomainAllowed()) {
+        window.location.href = 'https://www.hls-player.net';
+        return false;
+    }
+    return true;
+}
+
 // Function to shorten URL using TinyURL API
 async function shortenUrl(longUrl) {
-    if (!isDomainAllowed()) {
-        alert('This functionality is only available on authorized domains.');
+    if (!redirectIfNotAllowed()) {
         return longUrl; // Return original URL to prevent further processing
     }
     try {
@@ -29,8 +37,7 @@ async function shortenUrl(longUrl) {
 
 // Function to update iframe URL dynamically
 async function generateIframeUrl() {
-    if (!isDomainAllowed()) {
-        alert('This functionality is only available on authorized domains.');
+    if (!redirectIfNotAllowed()) {
         return;
     }
 
@@ -99,8 +106,7 @@ async function generateIframeUrl() {
 
 // Function to handle redirect to player page
 function redirectToPlayer() {
-    if (!isDomainAllowed()) {
-        alert('This functionality is only available on authorized domains.');
+    if (!redirectIfNotAllowed()) {
         return;
     }
 
@@ -153,8 +159,7 @@ function redirectToPlayer() {
 
 // Double-tap to copy iframe URL to clipboard
 function copyIframeUrl() {
-    if (!isDomainAllowed()) {
-        alert('This functionality is only available on authorized domains.');
+    if (!redirectIfNotAllowed()) {
         return;
     }
 
