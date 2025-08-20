@@ -1,7 +1,7 @@
 // Function to shorten URL using TinyURL API
 async function shortenUrl(longUrl) {
     try {
-        const response = await fetch(`https://tinyurl.com/api-create.php?url=${longUrl}`);
+        const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
         const shortUrl = await response.text();
         if (shortUrl.startsWith('https://tinyurl.com/')) {
             return shortUrl;
@@ -18,45 +18,55 @@ async function shortenUrl(longUrl) {
 async function generateIframeUrl() {
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
+    const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
+    const clearKey = document.getElementById('clearKey') ? document.getElementById('clearKey').value.trim() : '';
     const iframeUrlField = document.getElementById('iframeUrl');
     const iframeSection = document.getElementById('iframeSection');
 
     if (liveLink) {
         let baseUrl;
         let plainBaseUrl;
-        switch (playerType) {
-            case 'player1':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + liveLink;
-                break;
-            case 'player2':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + liveLink;
-                break;
-            case 'player3':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + liveLink;
-                break;
-            case 'player4':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + liveLink;
-                break;
-            case 'player5':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + liveLink;
-                break;
-            case 'player6':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + liveLink;
-                break;
-            case 'flv':
-                baseUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + encodeURIComponent(liveLink);
-                plainBaseUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + liveLink;
-                break;
-            default:
-                baseUrl = '';
-                plainBaseUrl = '';
-                break;
+        if (playerType === 'dashjs') {
+            const encodedLink = encodeURIComponent(liveLink);
+            const encodedKeyId = clearKeyId ? encodeURIComponent(clearKeyId) : '';
+            const encodedKey = clearKey ? encodeURIComponent(clearKey) : '';
+            plainBaseUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${encodedLink}${clearKeyId ? `&key1=${encodedKeyId}` : ''}${clearKey ? `&key2=${encodedKey}` : ''}`;
+            baseUrl = plainBaseUrl; // Use the provided MPD player URL directly
+        } else {
+            switch (playerType) {
+                case 'player1':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + liveLink;
+                    break;
+                case 'player2':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + liveLink;
+                    break;
+                case 'player3':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + liveLink;
+                    break;
+                case 'player4':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + liveLink;
+                    break;
+                case 'player5':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + liveLink;
+                    break;
+                case 'player6':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + liveLink;
+                    break;
+                case 'flv':
+                    baseUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + liveLink;
+                    break;
+                default:
+                    baseUrl = '';
+                    plainBaseUrl = '';
+                    break;
+            }
         }
 
         // Shorten the plain base URL using TinyURL
@@ -74,48 +84,73 @@ async function generateIframeUrl() {
 
 // Function to handle redirect to player page
 function redirectToPlayer() {
-    // Get the input value and selected player type
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
+    const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
+    const clearKey = document.getElementById('clearKey') ? document.getElementById('clearKey').value.trim() : '';
+    const playerLink = document.getElementById('playerLink');
+    const dashPlayerContainer = document.getElementById('dashPlayerContainer');
+    const dashVideoPlayer = document.getElementById('dashVideoPlayer');
 
-    // Validate the input link
     if (!liveLink) {
-        alert('Please enter a valid MP4/M3U8/HLS link!');
+        alert('Please enter a valid MPD/M3U8/MP4 link!');
         return;
     }
 
-    // Determine the player URL based on the selected player
-    let basePlayerUrl;
-    switch (playerType) {
-        case 'player1':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=';
-            break;
-        case 'player2':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=';
-            break;
-        case 'player3':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=';
-            break;
-        case 'player4':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=';
-            break;
-        case 'player5':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=';
-            break;
-        case 'player6':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=';
-            break;
-        case 'flv':
-            basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=';
-            break;
-        default:
-            alert('Invalid player selected!');
-            return;
+    if (playerType === 'dashjs') {
+        if (dashPlayerContainer && dashVideoPlayer) {
+            dashPlayerContainer.style.display = 'block';
+            const player = dashjs.MediaPlayer().create();
+            if (clearKeyId && clearKey) {
+                player.setProtectionData({
+                    "org.w3.clearkey": {
+                        "clearkeys": {
+                            [clearKeyId]: clearKey
+                        }
+                    }
+                });
+            }
+            player.initialize(dashVideoPlayer, liveLink, true);
+            const encodedLink = encodeURIComponent(liveLink);
+            const encodedKeyId = clearKeyId ? encodeURIComponent(clearKeyId) : '';
+            const encodedKey = clearKey ? encodeURIComponent(clearKey) : '';
+            playerLink.href = `https://hlsplayernet.pages.dev/players/mpd?url=${encodedLink}${clearKeyId ? `&key1=${encodedKeyId}` : ''}${clearKey ? `&key2=${encodedKey}` : ''}`;
+            window.open(playerLink.href, '_blank');
+        } else {
+            alert('DASH player container not found!');
+        }
+    } else {
+        let basePlayerUrl;
+        switch (playerType) {
+            case 'player1':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=';
+                break;
+            case 'player2':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=';
+                break;
+            case 'player3':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=';
+                break;
+            case 'player4':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=';
+                break;
+            case 'player5':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=';
+                break;
+            case 'player6':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=';
+                break;
+            case 'flv':
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=';
+                break;
+            default:
+                alert('Invalid player selected!');
+                return;
+        }
+        if (dashPlayerContainer) dashPlayerContainer.style.display = 'none';
+        playerLink.href = basePlayerUrl + liveLink;
+        window.open(playerLink.href, '_blank');
     }
-
-    // Set the href attribute of the link with the selected player URL and user input
-    const playerLink = document.getElementById('playerLink');
-    playerLink.href = basePlayerUrl + liveLink;
 }
 
 // Double-tap to copy iframe URL to clipboard
