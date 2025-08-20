@@ -63,14 +63,14 @@
     function getUrlParameters() {
         const urlParams = new URLSearchParams(window.location.search);
         return {
-            mpdurl: urlParams.get('mpdurl') || '(mpdurlhere)', // Fallback to default if no parameter
+            url: urlParams.get('url') || '(urlhere)', // Fallback to default if no parameter
             key1: urlParams.get('key1') || '(key1)', // Fallback to default if no parameter
             key2: urlParams.get('key2') || '(key2)' // Fallback to default if no parameter
         };
     }
 
     const params = getUrlParameters();
-    const youtube_theme_manifestUri = params.mpdurl;
+    const youtube_theme_manifestUri = params.url;
 
     async function init() {
         const video = document.getElementById('youtube-theme');
