@@ -1,5 +1,18 @@
+// List of allowed domains
+const allowedDomains = ['hls-player.net', 'hlsplayernet.pages.dev'];
+
+// Function to check if current domain is allowed
+function isDomainAllowed() {
+    const currentDomain = window.location.hostname;
+    return allowedDomains.includes(currentDomain);
+}
+
 // Function to shorten URL using TinyURL API
 async function shortenUrl(longUrl) {
+    if (!isDomainAllowed()) {
+        alert('This functionality is only available on authorized domains.');
+        return longUrl; // Return original URL to prevent further processing
+    }
     try {
         const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
         const shortUrl = await response.text();
@@ -16,6 +29,11 @@ async function shortenUrl(longUrl) {
 
 // Function to update iframe URL dynamically
 async function generateIframeUrl() {
+    if (!isDomainAllowed()) {
+        alert('This functionality is only available on authorized domains.');
+        return;
+    }
+
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
     const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
@@ -81,6 +99,11 @@ async function generateIframeUrl() {
 
 // Function to handle redirect to player page
 function redirectToPlayer() {
+    if (!isDomainAllowed()) {
+        alert('This functionality is only available on authorized domains.');
+        return;
+    }
+
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
     const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
@@ -128,8 +151,13 @@ function redirectToPlayer() {
     window.open(playerLink.href, '_blank');
 }
 
-// Double-tap to copy iframe URL to clipboard //lol
+// Double-tap to copy iframe URL to clipboard
 function copyIframeUrl() {
+    if (!isDomainAllowed()) {
+        alert('This functionality is only available on authorized domains.');
+        return;
+    }
+
     const iframeUrlField = document.getElementById('iframeUrl');
     iframeUrlField.select();
     document.execCommand('copy');
