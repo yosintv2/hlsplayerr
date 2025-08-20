@@ -1,11 +1,3 @@
-// List of allowed domains
-const allowedDomains = ['www.hls-player.net', 'hlsplayernet.pages.dev'];
-
-// Function to check if current domain is allowed
-function isDomainAllowed() {
-    const currentDomain = window.location.hostname;
-    return allowedDomains.includes(currentDomain);
-}
 
 // Function to shorten URL using TinyURL API
 async function shortenUrl(longUrl) {
