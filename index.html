@@ -77,7 +77,7 @@ h2 {
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
-<script src='https://www.hls-player.net/script.js'></script>
+<script src='script.js'></script>
 
 </head>
 <body class='index mpstyle1 players2 '>
@@ -146,7 +146,14 @@ h2 {
   </select>
 </div>
 
-<!-- Play Now Button -->
+	<!-- Iframe URL Output Section -->
+<div id="iframeSection" class="form-group" style="display:none;">
+  <textarea id="iframeUrl" readonly class="form-control" ondblclick="copyIframeUrl()"></textarea>
+  <small id="copyHint" style="display:block; margin-top:5px; color: #888;">Double-click to copy</small>
+</div>
+	
+	
+	<!-- Play Now Button -->
 <a id="playerLink" target="_blank">
   <button class="btn btn-primary" id="trydemo" name="submit" type="button" onclick="redirectToPlayer()"> Play Now </button>
 </a>
@@ -168,14 +175,6 @@ h2 {
 </script>
 </center>
 	
-	
-	<!-- Iframe URL Output Section -->
-<div id="iframeSection" class="form-group" style="display:none;">
-  <textarea id="iframeUrl" readonly class="form-control" ondblclick="copyIframeUrl()"></textarea>
-  <small id="copyHint" style="display:block; margin-top:5px; color: #888;">Double-click to copy</small>
-</div>
-
-
 
 </div>
 </div>
