@@ -86,68 +86,49 @@ function redirectToPlayer() {
     const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
     const clearKey = document.getElementById('clearKey') ? document.getElementById('clearKey').value.trim() : '';
     const playerLink = document.getElementById('playerLink');
-    const dashPlayerContainer = document.getElementById('dashPlayerContainer');
-    const dashVideoPlayer = document.getElementById('dashVideoPlayer');
 
     if (!liveLink) {
         alert('Please enter a valid MPD/M3U8/MP4 link!');
         return;
     }
 
+    let basePlayerUrl;
     if (playerType === 'dashjs') {
-        if (dashPlayerContainer && dashVideoPlayer) {
-            dashPlayerContainer.style.display = 'block';
-            const player = dashjs.MediaPlayer().create();
-            if (clearKeyId && clearKey) {
-                player.setProtectionData({
-                    "org.w3.clearkey": {
-                        "clearkeys": {
-                            [clearKeyId]: clearKey
-                        }
-                    }
-                });
-            }
-            player.initialize(dashVideoPlayer, liveLink, true);
-            playerLink.href = `https://hlsplayernet.pages.dev/players/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
-            window.open(playerLink.href, '_blank');
-        } else {
-            alert('DASH player container not found!');
-        }
+        basePlayerUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
     } else {
-        let basePlayerUrl;
         switch (playerType) {
             case 'player1':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + liveLink;
                 break;
             case 'player2':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + liveLink;
                 break;
             case 'player3':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + liveLink;
                 break;
             case 'player4':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + liveLink;
                 break;
             case 'player5':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + liveLink;
                 break;
             case 'player6':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + liveLink;
                 break;
             case 'flv':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=';
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + liveLink;
                 break;
             default:
                 alert('Invalid player selected!');
                 return;
         }
-        if (dashPlayerContainer) dashPlayerContainer.style.display = 'none';
-        playerLink.href = basePlayerUrl + liveLink;
-        window.open(playerLink.href, '_blank');
     }
+
+    playerLink.href = basePlayerUrl;
+    window.open(playerLink.href, '_blank');
 }
 
-// Double-tap to copy iframe URL to clipboard
+// Double-tap to copy iframe URL to clipboard //lol
 function copyIframeUrl() {
     const iframeUrlField = document.getElementById('iframeUrl');
     iframeUrlField.select();
