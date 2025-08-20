@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html dir='ltr' lang='en' xmlns='http://www.w3.org/1999/xhtml' 
+      xmlns:b='http://www.google.com/2005/gml/b' 
+      xmlns:data='http://www.google.com/2005/gml/data' 
+      xmlns:expr='http://www.google.com/2005/gml/expr' 
+      xmlns:og='http://ogp.me/ns#'>
+<head>
+    <link href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
+    <link href='https://fonts.googleapis.com/css2?family=Material+Icons' rel='stylesheet'/>
+    <link href='/fav.png' rel='icon' type='image/x-icon'/>
+
+    <!-- Meta Data-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use HLS-Player.net to play MPD/DASH online, test DASH links, and enjoy seamless streaming. A free DASH player for high-quality playback.">
+    <meta name="keywords" content="mpd player online, dash player online, mpd player, online dash player, free dash player, dash streaming player">
+    <meta name="author" content="HLS-Player.net">
+    <meta property="og:title" content="DASH Player - Free MPD, M3U8, MP4 Player">
+    <meta property="og:description" content="Use HLS-Player.net to play MPD/DASH online, test DASH links, and enjoy seamless streaming. A free DASH player for high-quality playback.">
+    <meta property="og:image" content="https://www.hls-player.net/header.png">
+    <meta property="og:url" content="https://hls-player.net">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DASH Player - Free MPD, M3U8, MP4 Player">
+    <meta name="twitter:description" content="Use HLS-Player.net to play MPD/DASH online, test DASH links, and enjoy seamless streaming. A free DASH player for high-quality playback.">
+    <meta name="twitter:image" content="https://www.hls-player.net/header.png">
+    <meta name="google-site-verification" content="wotklhViaDVD2LPjfIZyH3iQnf60G4vtT744BXFvHyU" />
+
+    <!-- Schema.org markup for Google+ -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "HLS-Player.net",
+            "url": "https://www.hls-player.net",
+            "description": "Free DASH player to play MPD streams online. Test DASH links and enjoy seamless streaming.",
+            "author": {
+                "@type": "Organization",
+                "name": "HLS-Player.net"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "HLS-Player.net"
+            },
+            "mainEntityOfPage": "https://www.hls-player.net",
+            "sameAs": [
+                "https://twitter.com/hls_player",
+                "https://www.facebook.com/hlsplayer"
+            ]
+        }
+    </script>
+
+    <style id='page-skin-1' type='text/css'>
+        /*Logo position*/
+        img.rmp-logo.rmp-logo-top-left {
+            left: 10px !important;
+            right: unset !important;
+            top: 10px !important;
+            bottom: unset !important;
+            z-index: 999;
+        }
+        h2 {
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .dashjs-player {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+
+    <title>DASH Player - Free MPD, M3U8, MP4 Player</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'/>
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'/>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
+    <script src='https://cdn.dashjs.org/latest/dash.all.min.js'></script>
+    <script src='https://hlsplayernet.pages.dev/script.js'></script>
+</head>
+<body class='index mpstyle1 players2'>
+    <div class='container'>
+        <div class='jumbotron jumbotron-fluid text-center my-2 rounded'>
+            <div class='container'>
+                <div class='logo-container'>
+                    <a href="/">
+                        <img alt='DASH Player - Free MPD, M3U8, MP4 Player' src='/header.png' style='max-width:100%; height:auto;'/>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <center>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7981191925382455"
+                    crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7981191925382455"
+                 data-ad-slot="3322637685"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </center>
+
+        <div class="container-fluid text-center">
+            <div class="btn-group" role="group" aria-label="Video Type">
+                <a href="/mp4-player-online.html" class="btn btn-outline-primary btn-lg">MP4 Player</a>
+                <a href="/m3u8-player-online.html" class="btn btn-outline-primary btn-lg">M3U8/HLS Player</a>
+                <a href="/dash-player-online.html" class="btn btn-outline-primary btn-lg active">DASH/MPD Player</a>
+            </div>
+        </div>
+
+        <div class='w-m-70'>
+            <div class='card mt-3'>
+                <div class='card-header text-center'>
+                    <b>Online MPD/DASH Player</b>
+                </div>
+                <div class='card-body text-center'>
+                    <div class='form-horizontal'>
+                        <div class="form-group">
+                            <label for="livelink">Paste Your MPD Link Here 👇👇</label>
+                            <input class="form-control" id="livelink" name="livelink" placeholder="Paste Your MPD Link Here..." required="required" type="text" value="" oninput="generateIframeUrl()" />
+                        </div>
+                        <div class="form-group">
+                            <label for="clearKeyId">Enter ClearKey Key ID </label>
+                            <input class="form-control" id="clearKeyId" name="clearKeyId" placeholder="Enter ClearKey Key ID (e.g., 1234567890def)" type="text" value="" oninput="generateIframeUrl()" />
+                        </div>
+                        <div class="form-group">
+                            <label for="clearKey">Enter ClearKey Key</label>
+                            <input class="form-control" id="clearKey" name="clearKey" placeholder="Enter ClearKey Key (e.g.,abcdef1234567890abcdef)" type="text" value="" oninput="generateIframeUrl()" />
+                        </div>
+                        <div class="form-group">
+                            <label for="playerytype"><b>Choose Player</b></label>
+                            <select class="select form-control" id="playerytype" name="playerytype" required="required" onchange="generateIframeUrl()">
+                                <option value="dashjs">MPD Player</option>
+                                <option value="player3">MP4/M3U8 - JWPlayer</option>
+                                <option value="player1">MP4/M3U8 - Clappr Player</option>
+                                <option value="player3">MP4/M3U8 - Plyr Player</option>
+                                <option value="player4">M3U8 Only - VideoJS Player</option>
+                                <option value="player6">Iframe - Iframe Player</option>
+                                <option value="flv">FLV - Online Player</option>
+                            </select>
+                        </div>
+
+                        <!-- Iframe URL Output Section -->
+                        <div id="iframeSection" class="form-group" style="display:none;">
+                            <textarea id="iframeUrl" readonly class="form-control" ondblclick="copyIframeUrl()"></textarea>
+                            <small id="copyHint" style="display:block; margin-top:5px; color: #888;">Double-click to copy</small>
+                        </div>
+
+                        <!-- Play Now Button -->
+                        <a id="playerLink" target="_blank">
+                            <button class="btn btn-primary" id="trydemo" name="submit" type="button" onclick="redirectToPlayer()">Play Now</button>
+                        </a>
+                        <div><br/></div>
+
+                        <!-- DASH Player Container -->
+                        <div id="dashPlayerContainer" style="display:none;">
+                            <video id="dashVideoPlayer" class="dashjs-player" controls></video>
+                        </div>
+
+                        <center>
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7981191925382455"
+                                    crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-7981191925382455"
+                                 data-ad-slot="3322637685"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                            <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <!-- Introduction Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">What is a DASH/MPD Player?</h2>
+                        <p>DASH (Dynamic Adaptive Streaming over HTTP) is a modern streaming protocol that delivers high-quality video with adaptive bitrate. Our <strong>MPD player online</strong> allows you to play <strong>MPD files</strong> seamlessly without software installation, including DRM-protected streams with ClearKey support.</p>
+                        <p>With <strong>HLS-Player.net</strong>, you can enjoy <strong>DASH streaming player</strong> functionality across devices, supporting <strong>IPTV, live broadcasts, and video-on-demand (VOD)</strong> with minimal buffering.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Use an Online DASH Player Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">Why Use an Online DASH Player?</h2>
+                        <p>Using an <strong>online DASH player</strong> offers several benefits:</p>
+                        <ul>
+                            <li><strong>Play MPD files online</strong> – No downloads or third-party software required.</li>
+                            <li><strong>DRM Support</strong> – Play ClearKey-protected streams with Key ID and Key inputs.</li>
+                            <li><strong>Adaptive bitrate streaming</strong> – Adjusts video quality based on your internet speed.</li>
+                            <li><strong>Cross-browser compatibility</strong> – Works on Chrome, Firefox, Edge, and Safari.</li>
+                            <li><strong>Mobile-friendly</strong> – Seamless playback on Android and iOS devices.</li>
+                            <li><strong>Test MPD links</strong> – Verify if an MPD stream is working before use.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Play MPD Files Online Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">How to Play MPD Files Online?</h2>
+                        <p>Playing MPD files is simple with <strong>HLS-Player.net</strong>:</p>
+                        <h3>Step 1 – Copy the MPD Link</h3>
+                        <p>Find an <strong>MPD link</strong> from an IPTV source or streaming website.</p>
+                        <h3>Step 2 – (Optional) Enter ClearKey Details</h3>
+                        <p>If the stream is DRM-protected, provide the <strong>ClearKey Key ID</strong> and <strong>Key</strong> in the input fields.</p>
+                        <h3>Step 3 – Paste the Link in Our DASH Player</h3>
+                        <p>Use our <strong>free DASH player</strong> to paste the link in the input field.</p>
+                        <h3>Step 4 – Click Play and Enjoy!</h3>
+                        <p>Press <strong>Play</strong> to start streaming instantly with our <strong>DASH streaming player</strong>.</p>
+                        <p><strong>Tip:</strong> If the stream doesn’t load, verify the MPD link and ClearKey details or try a different browser.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features of HLS-Player.net DASH Player Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">Features of HLS-Player.net DASH Player</h2>
+                        <h3>1. Free DASH Player Online</h3>
+                        <p>No registration needed! Our <strong>MPD web player</strong> is completely free.</p>
+                        <h3>2. ClearKey DRM Support</h3>
+                        <p>Play <strong>DRM-protected MPD streams</strong> by entering the Key ID and Key.</p>
+                        <h3>3. MPD Link Tester</h3>
+                        <p>Test if an <strong>MPD link</strong> is working before embedding it in your site or app.</p>
+                        <h3>4. Adaptive Streaming</h3>
+                        <p>Enjoy smooth playback with <strong>adaptive bitrate streaming</strong>.</p>
+                        <h3>5. Cross-Device Support</h3>
+                        <p>Works on <strong>mobile, tablet, and desktop</strong> with all major browsers.</p>
+                        <h3>6. IPTV & Live Streaming</h3>
+                        <p>Play <strong>IPTV MPD files</strong> and <strong>live DASH streams</strong> effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Issues with DASH Playback Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">Common Issues with DASH Playback (and Fixes)</h2>
+                        <h3>🔹 Problem: Video Not Playing?</h3>
+                        <p><strong>Solution:</strong> Verify the <strong>MPD URL</strong> and <strong>ClearKey details</strong> are correct and accessible.</p>
+                        <h3>🔹 Problem: Playback Buffering?</h3>
+                        <p><strong>Solution:</strong> Ensure a <strong>stable internet connection</strong> and try lowering the quality settings.</p>
+                        <h3>🔹 Problem: Unsupported Browser?</h3>
+                        <p><strong>Solution:</strong> Use <strong>Chrome, Firefox, or Edge</strong> for native DASH support.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">FAQ – Frequently Asked Questions</h2>
+                        <h3>Q1: What is an MPD file?</h3>
+                        <p>An <strong>MPD file</strong> is a manifest file used for <strong>DASH streaming</strong>, supporting adaptive bitrate video delivery.</p>
+                        <h3>Q2: What is ClearKey DRM?</h3>
+                        <p><strong>ClearKey</strong> is a simple DRM system that uses a Key ID and Key to decrypt DASH streams.</p>
+                        <h3>Q3: Can I play MPD files on mobile?</h3>
+                        <p>Yes! Our <strong>DASH player online</strong> supports <strong>iOS and Android devices</strong>.</p>
+                        <h3>Q4: How do I test an MPD stream?</h3>
+                        <p>Paste the <strong>MPD link</strong> and optional <strong>ClearKey details</strong> into our player to verify if it’s working.</p>
+                        <h3>Q5: Does HLS-Player.net support DASH playlist streaming?</h3>
+                        <p>Yes! You can <strong>play MPD files online</strong> and stream DASH playlists easily.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose HLS-Player.net Section -->
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="section-heading">Why Choose HLS-Player.net for DASH Streaming?</h2>
+                        <ul>
+                            <li><strong>Fast & Secure</strong> – Stream <strong>MPD files</strong> without delays.</li>
+                            <li><strong>DRM Support</strong> – Play ClearKey-protected streams seamlessly.</li>
+                            <li><strong>No Software Needed</strong> – Use our <strong>DASH streaming player</strong> instantly.</li>
+                            <li><strong>Supports All Devices</strong> – Mobile, tablet, and desktop-friendly.</li>
+                            <li><strong>100% Free</strong> – No subscriptions, no hidden fees.</li>
+                        </ul>
+                        <p><strong>Start streaming now with HLS-Player.net!</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='card my-1 p-1 w-100 text-center d-block'>
+            Our Pages: <a href='/?view=contact'>Contact Us</a> | 
+            <a href='/?view=disclaimer'>Disclaimer</a> | 
+            <a href='/?view=privacypolicy'>Privacy Policy</a> | 
+            <a href='/?view=termsconditions'>Terms & Conditions</a>
+        </div>
+
+        <div class='card my-1 p-1 w-100 text-center d-block'>
+            More Players: 
+            <a href='/hls-player-online.html'>HLS Player Online</a> | 
+            <a href='/m3u8-online-player.html'>M3U8 Online Player</a> | 
+            <a href='/m3u8-player-online-free.html'>M3U8 Player Online Free</a> | 
+            <a href='/m3u8-player.html'>M3U8 Player</a> | 
+            <a href='/dash-player-online.html'>DASH Player Online</a>
+        </div>
+    </div>
+
+    <div class='colors section' id='Colors'>
+        <div class='widget HTML' data-version='1' id='HTML301'>
+            <style> div#sharbtn, div#relodbtn { background: #e72432; } </style>
+        </div>
+        <div class='widget HTML' data-version='1' id='HTML302'>
+            <style> .play-wrapper, .video-js .vjs-big-play-button, .plyr__control--overlaid, button.rmp-button.rmp-overlay-button.rmp-color-bg { background-color: #e72432 !important; } </style>
+        </div>
+    </div>
+
+    <!-- BEGIN: Powered by Supercounters.com -->
+    <div style="position:fixed;top:0;left:0;width:100%;height:1px;overflow:hidden;visibility:hidden;z-index:9999;">
+        <script id="_wau6ae">var _wau = _wau || []; _wau.push(["dynamic", "1zcs58ixog", "6ae", "c4302bffffff", "small"]);</script>
+        <script async src="//waust.at/d.js"></script>
+    </div>
+</body>
+</html>
