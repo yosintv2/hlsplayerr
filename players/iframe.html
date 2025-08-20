@@ -1,0 +1,130 @@
+
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://www.hls-player.net/fav.png' rel='icon' type='image/x-icon'/>
+<title> Iframe Player</title>
+
+
+<body>
+<div class='embed-responsive embed-responsive-16by9' id='asint'>
+<div class='embed-responsive-item'>
+<iframe id="iframe" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="0" height="100%" marginheight="0" marginwidth="0" src width="100%"></iframe> 
+</div>
+    
+</div>
+        
+        
+        
+<div id="jwPlayer"></div>
+<div id="jwplayers"></div>
+<script>
+    // Get the `src` parameter from the URL.
+    const urlParams = new URLSearchParams(window.location.search);
+    const srcParam = urlParams.get('url');
+    const videoUrl = urlParams.get('url');
+    
+    if (srcParam) {
+      // Show the iframe player
+      document.getElementById('iframe').src = srcParam;
+      document.getElementById('jwPlayer').style.display = 'none';
+    } else if (videoUrl) {
+      // Show the JW Player
+      jwplayer("jwPlayer").setup({
+        file: videoUrl,
+      });
+      document.getElementById('iframe').style.display = 'none';
+    }
+  </script> 
+    
+</div>
+
+
+
+        
+<style>
+        #container {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          background: #8a0000;
+          color: #fff;
+          overflow: hidden;
+        }
+        #iframe, #jwPlayer {
+          height: 100vh !important;
+          padding: 0;
+          margin: 0;
+        }
+        body {
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+        }
+        #container {
+          position: absolute;
+          text-align: center;
+        }
+        video {
+          outline: 0;
+        }
+        #text {
+          position: fixed;
+          border: 0;
+          left: 0;
+          width: 100%;
+          color: #fff;
+          bottom: 50px;
+          text-align: center;
+          font-family: tahoma;
+          font-size: 20px;
+          z-index: 9999;
+        }
+
+.join-button-container {
+    position: absolute;
+    top: 10px; /* Adjust this value to position the button vertically */
+    right: 10px; /* Adjust this value to position the button horizontally */
+    z-index: 1000; /* Ensure the button appears above the iframe */
+  }
+  .join-button {
+    padding: 5px 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+    
+      </style>
+    </div>
+
+    <style>
+        .video-js {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            text-align: center;
+            margin: 0px;
+        }
+        #videojs {
+            width: 100%;
+            height: 100%;
+        }.streaming-dimensions{
+                    width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+        
+
+<div style="position:fixed;top:0;left:0;width:100%;height:1px;overflow:hidden;visibility:hidden;z-index:9999;">
+<script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script>
+<script type="text/javascript">sc_online_i(1707252,"ffffff","ffffff");</script><noscript><a href="https://www.supercounters.com/" style="visibility:hidden;">free online counter</a></noscript></div>
+        
+</body>
+</html>
