@@ -78,4 +78,16 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
+        <url>
+        <loc>https://www.hls-player.net/es/</loc>
+        <lastmod>2025-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+        <url>
+        <loc>https://www.hls-player.net/pt/</loc>
+        <lastmod>2025-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
