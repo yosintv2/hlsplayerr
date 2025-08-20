@@ -1,5 +1,5 @@
 // List of allowed domains
-const allowedDomains = ['hls-player.net', 'hlsplayernet.pages.dev'];
+const allowedDomains = ['hls-player.net','dplayerr.blogspot.com', 'hlsplayernet.pages.dev'];
 
 // Function to check if current domain is allowed
 function isDomainAllowed() {
