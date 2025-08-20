@@ -1,9 +1,5 @@
-
 // Function to shorten URL using TinyURL API
 async function shortenUrl(longUrl) {
-    if (!redirectIfNotAllowed()) {
-        return longUrl; // Return original URL to prevent further processing
-    }
     try {
         const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
         const shortUrl = await response.text();
@@ -20,10 +16,6 @@ async function shortenUrl(longUrl) {
 
 // Function to update iframe URL dynamically
 async function generateIframeUrl() {
-    if (!redirectIfNotAllowed()) {
-        return;
-    }
-
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
     const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
@@ -35,7 +27,10 @@ async function generateIframeUrl() {
         let baseUrl;
         let plainBaseUrl;
         if (playerType === 'dashjs') {
-            plainBaseUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
+            const encodedLink = encodeURIComponent(liveLink);
+            const encodedKeyId = clearKeyId ? encodeURIComponent(clearKeyId) : '';
+            const encodedKey = clearKey ? encodeURIComponent(clearKey) : '';
+            plainBaseUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${encodedLink}${clearKeyId ? `&key1=${encodedKeyId}` : ''}${clearKey ? `&key2=${encodedKey}` : ''}`;
             baseUrl = plainBaseUrl; // Use the provided MPD player URL directly
         } else {
             switch (playerType) {
@@ -89,63 +84,77 @@ async function generateIframeUrl() {
 
 // Function to handle redirect to player page
 function redirectToPlayer() {
-    if (!redirectIfNotAllowed()) {
-        return;
-    }
-
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
     const clearKeyId = document.getElementById('clearKeyId') ? document.getElementById('clearKeyId').value.trim() : '';
     const clearKey = document.getElementById('clearKey') ? document.getElementById('clearKey').value.trim() : '';
     const playerLink = document.getElementById('playerLink');
+    const dashPlayerContainer = document.getElementById('dashPlayerContainer');
+    const dashVideoPlayer = document.getElementById('dashVideoPlayer');
 
     if (!liveLink) {
         alert('Please enter a valid MPD/M3U8/MP4 link!');
         return;
     }
 
-    let basePlayerUrl;
     if (playerType === 'dashjs') {
-        basePlayerUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
+        if (dashPlayerContainer && dashVideoPlayer) {
+            dashPlayerContainer.style.display = 'block';
+            const player = dashjs.MediaPlayer().create();
+            if (clearKeyId && clearKey) {
+                player.setProtectionData({
+                    "org.w3.clearkey": {
+                        "clearkeys": {
+                            [clearKeyId]: clearKey
+                        }
+                    }
+                });
+            }
+            player.initialize(dashVideoPlayer, liveLink, true);
+            const encodedLink = encodeURIComponent(liveLink);
+            const encodedKeyId = clearKeyId ? encodeURIComponent(clearKeyId) : '';
+            const encodedKey = clearKey ? encodeURIComponent(clearKey) : '';
+            playerLink.href = `https://hlsplayernet.pages.dev/players/mpd?url=${encodedLink}${clearKeyId ? `&key1=${encodedKeyId}` : ''}${clearKey ? `&key2=${encodedKey}` : ''}`;
+            window.open(playerLink.href, '_blank');
+        } else {
+            alert('DASH player container not found!');
+        }
     } else {
+        let basePlayerUrl;
         switch (playerType) {
             case 'player1':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player1.html?url=';
                 break;
             case 'player2':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player2.html?url=';
                 break;
             case 'player3':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player3.html?url=';
                 break;
             case 'player4':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player4.html?url=';
                 break;
             case 'player5':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/player5.html?url=';
                 break;
             case 'player6':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/iframe.html?url=';
                 break;
             case 'flv':
-                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=' + liveLink;
+                basePlayerUrl = 'https://hlsplayernet.pages.dev/players/flv.html?url=';
                 break;
             default:
                 alert('Invalid player selected!');
                 return;
         }
+        if (dashPlayerContainer) dashPlayerContainer.style.display = 'none';
+        playerLink.href = basePlayerUrl + liveLink;
+        window.open(playerLink.href, '_blank');
     }
-
-    playerLink.href = basePlayerUrl;
-    window.open(playerLink.href, '_blank');
 }
 
 // Double-tap to copy iframe URL to clipboard
 function copyIframeUrl() {
-    if (!redirectIfNotAllowed()) {
-        return;
-    }
-
     const iframeUrlField = document.getElementById('iframeUrl');
     iframeUrlField.select();
     document.execCommand('copy');
