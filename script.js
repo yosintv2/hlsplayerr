@@ -27,10 +27,7 @@ async function generateIframeUrl() {
         let baseUrl;
         let plainBaseUrl;
         if (playerType === 'dashjs') {
-            const encodedLink = encodeURIComponent(liveLink);
-            const encodedKeyId = clearKeyId ? encodeURIComponent(clearKeyId) : '';
-            const encodedKey = clearKey ? encodeURIComponent(clearKey) : '';
-            plainBaseUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${encodedLink}${clearKeyId ? `&key1=${encodedKeyId}` : ''}${clearKey ? `&key2=${encodedKey}` : ''}`;
+            plainBaseUrl = `https://hlsplayernet.pages.dev/players/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
             baseUrl = plainBaseUrl; // Use the provided MPD player URL directly
         } else {
             switch (playerType) {
@@ -111,10 +108,7 @@ function redirectToPlayer() {
                 });
             }
             player.initialize(dashVideoPlayer, liveLink, true);
-            const encodedLink = encodeURIComponent(liveLink);
-            const encodedKeyId = clearKeyId ? encodeURIComponent(clearKeyId) : '';
-            const encodedKey = clearKey ? encodeURIComponent(clearKey) : '';
-            playerLink.href = `https://hlsplayernet.pages.dev/players/mpd?url=${encodedLink}${clearKeyId ? `&key1=${encodedKeyId}` : ''}${clearKey ? `&key2=${encodedKey}` : ''}`;
+            playerLink.href = `https://hlsplayernet.pages.dev/players/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
             window.open(playerLink.href, '_blank');
         } else {
             alert('DASH player container not found!');
