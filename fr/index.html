@@ -13,14 +13,14 @@ xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
 <!-- Meta Data-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Utilisez HLS-Player.net pour lire des fichiers M3U8 en ligne, tester des liens HLS et convertir HLS en MP4. Un lecteur M3U8 gratuit pour un streaming fluide.">
-<meta name="keywords" content="lecteur m3u8 en ligne, lecteur hls en ligne, lecteur m3u8, lecteur m3u8 online, lecteur hls, lecteur m3u8 gratuit, lecteur de streaming m3u8, hls vers mp4 en ligne, chercheur de m3u8 en ligne">
+<meta name="keywords" content="lecteur m3u8 en ligne, lecteur hls en ligne, lecteur m3u8, lecteur m3u8 en ligne, lecteur hls, lecteur m3u8 gratuit, lecteur de streaming m3u8, convertir hls en mp4 en ligne, chercheur m3u8 en ligne">
 <meta name="author" content="HLS-Player.net">
-<meta property="og:title" content="Lecteur HLS - Lecteur Gratuit de M3U8, MP4, DASH">
+<meta property="og:title" content="Lecteur HLS - Lecteur M3U8, MP4, DASH gratuit">
 <meta property="og:description" content="Utilisez HLS-Player.net pour lire des fichiers M3U8 en ligne, tester des liens HLS et convertir HLS en MP4. Un lecteur M3U8 gratuit pour un streaming fluide.">
 <meta property="og:image" content="https://www.hls-player.net/header.png">
 <meta property="og:url" content="https://hls-player.net">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lecteur HLS - Lecteur Gratuit de M3U8, MP4, DASH">
+<meta name="twitter:title" content="Lecteur HLS - Lecteur M3U8, MP4, DASH gratuit">
 <meta name="twitter:description" content="Utilisez HLS-Player.net pour lire des fichiers M3U8 en ligne, tester des liens HLS et convertir HLS en MP4. Un lecteur M3U8 gratuit pour un streaming fluide.">
 <meta name="twitter:image" content="https://www.hls-player.net/header.png">
 <meta name="google-site-verification" content="wotklhViaDVD2LPjfIZyH3iQnf60G4vtT744BXFvHyU" />
@@ -32,7 +32,7 @@ xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
     "@type": "WebSite",
     "name": "HLS-Player.net",
     "url": "https://www.hls-player.net",
-    "description": "Lecteur M3U8 gratuit pour lire des streams HLS en ligne. Testez des liens M3U8 et convertissez HLS en MP4.",
+    "description": "Lecteur M3U8 gratuit pour lire des flux HLS en ligne. Testez des liens M3U8 et convertissez HLS en MP4.",
     "author": {
         "@type": "Organization",
         "name": "HLS-Player.net"
@@ -66,7 +66,7 @@ h2 {
 }
 </style>
 
-<title>HLS-Player.net - Lecteur M3U8 en ligne, Lecteur HLS en ligne</title>
+<title>Lecteur HLS - Lecteur M3U8, MP4, DASH gratuit</title>
 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'/>
 <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -80,8 +80,8 @@ h2 {
 <div class='jumbotron jumbotron-fluid text-center my-2 rounded'>
 <div class='container'>
 <div class='logo-container'>
-<a href="/">
-<img alt='Lecteur HLS - Lecteur Gratuit de M3U8, MP4, DASH' src='/header.png' style='max-width:100%; height:auto;'/>
+<a href="/fr/">
+<img alt='Lecteur HLS - Lecteur M3U8, MP4, DASH gratuit' src='/header.png' style='max-width:100%; height:auto;'/>
 </a>
 </div>
 </div>
@@ -114,9 +114,9 @@ h2 {
 </div>
 
 <div class="container-fluid text-center">
-    <div class="btn-group" role="group" aria-label="Type de Vidéo">
-      <a href="/fr/lecteur-mp4-en-ligne.html" class="btn btn-outline-primary btn-lg">Lecteur MP4</a>
-      <a href="/fr/lecteur-mpd-en-ligne.html" class="btn btn-outline-primary btn-lg">Lecteur DASH/MPD</a>
+    <div class="btn-group" role="group" aria-label="Type de vidéo">
+      <a href="/fr/mp4-player-online.html" class="btn btn-outline-primary btn-lg">Lecteur MP4</a>
+      <a href="/fr/mpd-dash-player.html" class="btn btn-outline-primary btn-lg">Lecteur DASH/MPD</a>
       <a href="/fr/" class="btn btn-outline-primary btn-lg">Lecteur M3U8/HLS</a>
     </div>
 </div>
@@ -124,7 +124,7 @@ h2 {
 <div class='w-m-70'>
 <div class='card mt-3'>
 <div class='card-header text-center'>
-<b>Lecteur en Ligne de MP4/M3U8/HLS</b>
+<b>Lecteur MP4/M3U8/HLS en ligne</b>
 </div>
 <div class='card-body text-center'>
 <div class='form-horizontal'>
@@ -133,15 +133,15 @@ h2 {
   <input class="form-control" id="livelink" name="livelink" placeholder="Collez votre lien ici..." required="required" type="text" value="" oninput="generateIframeUrl()" />
 </div>
 <div class="form-group">
-  <label for="playerytype"><b>Choisissez le Lecteur</b></label>
+  <label for="playerytype"><b>Choisir le lecteur</b></label>
   <select class="select form-control" id="playerytype" name="playerytype" required="required" onchange="generateIframeUrl()">
-    <option value="player2">M3U8 Uniquement - D'Player</option>
+    <option value="player2">M3U8 uniquement - D'Player</option>
     <option value="player3">MP4/M3U8 - JWPlayer</option>
     <option value="player1">MP4/M3U8 - Clappr Player</option>
-    <option value="player3">MP4/M3U8 - Plyr Player</option>
-    <option value="player4">M3U8 Uniquement - VideoJS Player</option>    
-    <option value="player6">Iframe - Lecteur Iframe</option>    
-    <option value="flv">FLV - Lecteur en Ligne</option>
+    <option value="mp4">Lecteur MP4 en ligne</option>
+    <option value="player4">M3U8 uniquement - VideoJS Player</option>    
+    <option value="player6">Iframe - Iframe Player</option>    
+    <option value="flv">FLV - Lecteur en ligne</option>
   </select>
 </div>
 
@@ -153,7 +153,7 @@ h2 {
 
 <!-- Play Now Button -->
 <a id="playerLink" target="_blank">
-  <button class="btn btn-primary" id="trydemo" name="submit" type="button" onclick="redirectToPlayer()">Lire Maintenant</button>
+  <button class="btn btn-primary" id="trydemo" name="submit" type="button" onclick="redirectToPlayer()">Lire maintenant</button>
 </a>
 <div><br/></div>
 
@@ -182,9 +182,9 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Qu'est-ce qu'un Lecteur M3U8 ?</h2>
-<p>Le streaming vidéo est plus populaire que jamais, et les outils de <strong>lecteur M3U8 en ligne</strong> ont facilité la visualisation des <strong>fichiers HLS (HTTP Live Streaming)</strong> sans installation de logiciel. Que vous souhaitiez <strong>lire des fichiers M3U8 en ligne</strong>, tester un <strong>lecteur de streaming HLS</strong>, ou utiliser un <strong>lecteur web M3U8</strong>, <strong>HLS-Player.net</strong> est votre plateforme idéale.</p>
-<p>Notre <strong>lecteur M3U8 gratuit en ligne</strong> prend en charge la fonctionnalité de <strong>lecteur vidéo HLS</strong>, permettant aux utilisateurs de profiter d'une lecture fluide sur tous les appareils. Que vous diffusiez du contenu <strong>IPTV, des diffusions en direct ou du contenu vidéo à la demande (VOD)</strong>, notre <strong>lecteur HLS en ligne</strong> offre une <strong>lecture de haute qualité</strong> sans interruptions.</p>
+<h2 class="section-heading">Qu'est-ce qu'un lecteur M3U8 ?</h2>
+<p>Le streaming vidéo est plus populaire que jamais, et les outils de <strong>lecteur M3U8 en ligne</strong> ont facilité la lecture des <strong>fichiers HLS (HTTP Live Streaming)</strong> sans installation de logiciel. Que vous souhaitiez <strong>lire M3U8 en ligne</strong>, tester un <strong>lecteur de flux HLS</strong> ou utiliser un <strong>lecteur web M3U8</strong>, <strong>HLS-Player.net</strong> est votre plateforme de choix.</p>
+<p>Notre <strong>lecteur M3U8 gratuit en ligne</strong> prend en charge la <strong>fonctionnalité de lecteur vidéo HLS</strong>, permettant aux utilisateurs de profiter d'une lecture fluide sur tous les appareils. Que vous diffusiez du <strong>IPTV, des émissions en direct ou du contenu vidéo à la demande (VOD)</strong>, notre <strong>lecteur HLS en ligne</strong> offre une <strong>lecture de haute qualité</strong> sans mise en mémoire tampon.</p>
 </div>
 </div>
 </div>
@@ -208,14 +208,14 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Pourquoi Utiliser un Lecteur M3U8 en Ligne ?</h2>
-<p>L'utilisation d'un <strong>lecteur HLS en ligne</strong> présente plusieurs avantages :</p>
+<h2 class="section-heading">Pourquoi utiliser un lecteur M3U8 en ligne ?</h2>
+<p>L'utilisation d'un <strong>lecteur HLS en ligne</strong> offre plusieurs avantages :</p>
 <ul>
-    <li><strong>Lire des fichiers M3U8 en ligne</strong> – Pas besoin de téléchargements ou de logiciels tiers.</li>
-    <li><strong>Compatible avec les formats vidéo HLS</strong> – Fonctionne avec les <strong>fichiers de lecteur de streaming M3U8</strong> et les <strong>streams HLS</strong>.</li>
-    <li><strong>Compatible avec mobiles et navigateurs</strong> – Profitez d'une lecture fluide sur Windows, Mac, Android et iOS.</li>
-    <li><strong>Testeur de M3U8 en ligne</strong> – Vérifiez si un <strong>stream M3U8</strong> fonctionne avant de l'intégrer.</li>
-    <li><strong>Convertir HLS en MP4 en ligne</strong> – Téléchargez des vidéos du <strong>lecteur de streaming HLS</strong> pour une visualisation hors ligne.</li>
+    <li><strong>Lire un fichier M3U8 en ligne</strong> – Aucun téléchargement ou logiciel tiers requis.</li>
+    <li><strong>Compatible avec les formats vidéo HLS</strong> – Fonctionne avec les <strong>fichiers de lecteur de streaming M3U8</strong> et les <strong>flux HLS</strong>.</li>
+    <li><strong>Compatible mobile et navigateurs multiples</strong> – Profitez d'une lecture fluide sur Windows, Mac, Android et iOS.</li>
+    <li><strong>Testeur M3U8 en ligne</strong> – Vérifiez si un <strong>flux M3U8</strong> fonctionne avant de l'intégrer.</li>
+    <li><strong>Convertir HLS en MP4 en ligne</strong> – Téléchargez des vidéos du <strong>lecteur de streaming HLS</strong> pour un visionnage hors ligne.</li>
 </ul>
 </div>
 </div>
@@ -225,15 +225,15 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Comment Lire des Fichiers M3U8 en Ligne ?</h2>
+<h2 class="section-heading">Comment lire des fichiers M3U8 en ligne ?</h2>
 <p>Lire des fichiers M3U8 est facile avec <strong>HLS-Player.net</strong>. Suivez ces étapes :</p>
-<h3>Étape 1 – Copiez le Lien M3U8</h3>
+<h3>Étape 1 – Copiez le lien M3U8</h3>
 <p>Trouvez un <strong>lien M3U8 en ligne</strong> à partir d'une source IPTV ou d'un site de streaming en direct.</p>
-<h3>Étape 2 – Collez le Lien dans Notre Lecteur M3U8 en Ligne</h3>
+<h3>Étape 2 – Collez le lien dans notre lecteur M3U8 en ligne</h3>
 <p>Utilisez notre <strong>lecteur M3U8 gratuit</strong> pour coller le lien dans le champ de saisie.</p>
-<h3>Étape 3 – Cliquez sur Lire et Profitez !</h3>
-<p>Appuyez sur <strong>Lire</strong> pour commencer à regarder votre stream instantanément sur notre <strong>lecteur HLS - lecteur de streaming M3U8</strong>.</p>
-<p><strong>Astuce :</strong> Si le stream ne se charge pas, utilisez notre <strong>testeur de M3U8</strong> pour vérifier si le lien fonctionne ou essayez un <strong>lecteur vidéo HLS en ligne</strong> différent.</p>
+<h3>Étape 3 – Cliquez sur Lire et profitez !</h3>
+<p>Appuyez sur <strong>Lire</strong> pour commencer à regarder votre flux instantanément sur notre <strong>lecteur HLS - Lecteur de streaming M3U8</strong>.</p>
+<p><strong>Astuce :</strong> Si le flux ne se charge pas, utilisez notre <strong>testeur M3U8</strong> pour vérifier si le lien fonctionne ou essayez un autre <strong>lecteur vidéo HLS en ligne</strong>.</p>
 </div>
 </div>
 </div>
@@ -257,17 +257,17 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Caractéristiques de HLS-Player.net</h2>
-<h3>1. Lecteur M3U8 Gratuit en Ligne</h3>
-<p>Aucun enregistrement requis ! Notre <strong>lecteur web M3U8</strong> est un <strong>lecteur HLS gratuit en ligne</strong> qui fonctionne instantanément.</p>
-<h3>2. Testeur de M3U8 et Vérificateur de Liens</h3>
-<p>Utilisez notre <strong>testeur de M3U8 en ligne</strong> pour vérifier si un <strong>lien M3U8</strong> fonctionne avant de l'intégrer à votre site web ou application.</p>
-<h3>3. Conversion de HLS en MP4 en Ligne</h3>
-<p>Vous voulez sauvegarder votre stream ? Utilisez notre outil de <strong>conversion de HLS en MP4 en ligne</strong> pour télécharger des vidéos.</p>
-<h3>4. Compatibilité avec Mobiles et Navigateurs</h3>
+<h2 class="section-heading">Fonctionnalités de HLS-Player.net</h2>
+<h3>1. Lecteur M3U8 gratuit en ligne</h3>
+<p>Aucune inscription requise ! Notre <strong>lecteur web M3U8</strong> est un <strong>lecteur HLS gratuit en ligne</strong> qui fonctionne instantanément.</p>
+<h3>2. Testeur M3U8 et vérificateur de lien</h3>
+<p>Utilisez notre <strong>testeur M3U8 en ligne</strong> pour vérifier si un <strong>lien M3U8</strong> fonctionne avant de l'intégrer dans votre site web ou application.</p>
+<h3>3. Conversion HLS en MP4 en ligne</h3>
+<p>Vous voulez sauvegarder votre flux ? Utilisez notre outil <strong>HLS en MP4 en ligne</strong> pour télécharger des vidéos.</p>
+<h3>4. Compatibilité mobile et multi-navigateurs</h3>
 <p>Notre <strong>lecteur vidéo HLS en ligne</strong> fonctionne sur tous les principaux navigateurs, y compris <strong>Chrome, Firefox, Edge et Safari</strong>.</p>
-<h3>5. Support pour IPTV et Streaming en Direct</h3>
-<p>Lisez des <strong>fichiers M3U8 IPTV</strong>, des <strong>streams HLS en ligne</strong> et du contenu de <strong>lecteur vidéo M3U8 en ligne</strong> sans effort.</p>
+<h3>5. Support IPTV et streaming en direct</h3>
+<p>Lisez facilement des <strong>fichiers M3U8 IPTV</strong>, des <strong>flux HLS en ligne</strong> et du contenu <strong>lecteur vidéo M3U8 en ligne</strong>.</p>
 </div>
 </div>
 </div>
@@ -276,13 +276,13 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Comment Trouver des Liens M3U8 pour le Streaming ?</h2>
+<h2 class="section-heading">Comment trouver des liens M3U8 pour le streaming ?</h2>
 <p>Si vous cherchez des <strong>liens M3U8</strong>, voici quelques sources :</p>
 <ul>
     <li><strong>Fournisseurs IPTV</strong> – De nombreux services IPTV proposent des <strong>listes de lecture M3U8</strong>.</li>
-    <li><strong>Sites de télévision en direct</strong> – Certains services de streaming fournissent des <strong>URLs de lecteur vidéo HLS</strong>.</li>
-    <li><strong>Chercheur de M3U8 en ligne</strong> – Utilisez des outils qui aident à découvrir des <strong>liens de lecteur HLS</strong> publics.</li>
-    <li><strong>Outils de Développeur</strong> – Extrayez des <strong>liens M3U8</strong> des lecteurs vidéo en utilisant les outils de développement du navigateur.</li>
+    <li><strong>Sites de télévision en direct</strong> – Certains services de streaming fournissent des <strong>URL de lecteurs vidéo HLS</strong>.</li>
+    <li><strong>Chercheur M3U8 en ligne</strong> – Utilisez des outils qui aident à découvrir des <strong>liens de lecteurs HLS</strong> publics.</li>
+    <li><strong>Outils de développement</strong> – Extrayez des <strong>liens M3U8</strong> des lecteurs vidéo à l'aide des outils de développement du navigateur.</li>
 </ul>
 </div>
 </div>
@@ -292,13 +292,13 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Problèmes Courants avec la Lecture de M3U8 (et Solutions)</h2>
+<h2 class="section-heading">Problèmes courants avec la lecture M3U8 (et solutions)</h2>
 <h3>🔹 Problème : La vidéo ne se lit pas ?</h3>
-<p><strong>Solution :</strong> Vérifiez si l'<strong>URL M3U8</strong> est active en utilisant un <strong>testeur de M3U8 en ligne</strong>.</p>
+<p><strong>Solution :</strong> Vérifiez si l'<strong>URL M3U8</strong> est active à l'aide d'un <strong>testeur M3U8 en ligne</strong>.</p>
 <h3>🔹 Problème : Mise en mémoire tampon pendant la lecture ?</h3>
-<p><strong>Solution :</strong> Utilisez une <strong>connexion Internet rapide</strong> et essayez un <strong>lecteur de stream HLS</strong> différent.</p>
-<h3>🔹 Problème : Navigateur non pris en charge ?</h3>
-<p><strong>Solution :</strong> Utilisez <strong>Chrome, Firefox ou Edge</strong>, qui prennent en charge les <strong>lecteurs vidéo HLS</strong> nativement.</p>
+<p><strong>Solution :</strong> Utilisez une <strong>connexion Internet rapide</strong> et essayez un autre <strong>lecteur de flux HLS</strong>.</p>
+<h3>🔹 Problème : Navigateur non supporté ?</h3>
+<p><strong>Solution :</strong> Utilisez <strong>Chrome, Firefox ou Edge</strong>, qui prennent en charge nativement les <strong>lecteurs vidéo HLS</strong>.</p>
 </div>
 </div>
 </div>
@@ -307,15 +307,15 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">FAQ - Questions Fréquemment Posées</h2>
+<h2 class="section-heading">FAQ – Questions fréquemment posées</h2>
 <h3>Q1 : Qu'est-ce qu'un fichier M3U8 ?</h3>
-<p>Un <strong>fichier M3U8</strong> est un format de liste de lecture pour le <strong>streaming HLS</strong>, couramment utilisé pour l'<strong>IPTV, VOD et les diffusions en direct</strong>.</p>
+<p>Un <strong>fichier M3U8</strong> est un format de liste de lecture pour le <strong>streaming HLS</strong>, couramment utilisé pour l'<strong>IPTV, la VOD et les diffusions en direct</strong>.</p>
 <h3>Q2 : Puis-je lire des fichiers M3U8 sur mobile ?</h3>
 <p>Oui ! Notre <strong>lecteur HLS en ligne</strong> fonctionne sur les <strong>appareils iOS et Android</strong>.</p>
-<h3>Q3 : Comment tester un stream M3U8 ?</h3>
-<p>Utilisez notre <strong>testeur de M3U8 en ligne</strong> pour vérifier si un <strong>lien M3U8 en ligne</strong> fonctionne.</p>
+<h3>Q3 : Comment tester un flux M3U8 ?</h3>
+<p>Utilisez notre <strong>testeur M3U8 en ligne</strong> pour vérifier si un <strong>lien M3U8 en ligne</strong> fonctionne.</p>
 <h3>Q4 : Puis-je convertir M3U8 en MP4 ?</h3>
-<p>Oui ! Notre outil de <strong>conversion de HLS en MP4 en ligne</strong> vous permet de télécharger des <strong>fichiers M3U8 en MP4</strong>.</p>
+<p>Oui ! Notre outil <strong>HLS en MP4 en ligne</strong> vous permet de télécharger des <strong>fichiers M3U8 sous forme de MP4</strong>.</p>
 <h3>Q5 : HLS-Player.net prend-il en charge le streaming de listes de lecture M3U8 ?</h3>
 <p>Absolument ! Vous pouvez <strong>lire n'importe quel fichier M3U8 en ligne</strong> et diffuser des listes de lecture facilement.</p>
 </div>
@@ -326,12 +326,12 @@ h2 {
 <div class="col-lg-12 mb-4">
 <div class="card shadow-sm">
 <div class="card-body">
-<h2 class="section-heading">Pourquoi Choisir HLS-Player.net pour le Streaming ?</h2>
+<h2 class="section-heading">Pourquoi choisir HLS-Player.net pour le streaming ?</h2>
 <ul>
-    <li><strong>Rapide et Sécurisé</strong> – Lisez des <strong>streams M3U8 en ligne</strong> sans délais.</li>
-    <li><strong>Aucun Logiciel Requis</strong> – Utilisez notre <strong>lecteur HLS - lecteur de streaming M3U8</strong> instantanément.</li>
-    <li><strong>Compatible avec Tous les Appareils</strong> – Compatible avec les mobiles, tablettes et ordinateurs de bureau.</li>
-    <li><strong>100% Gratuit</strong> – Pas d'abonnements, pas de frais cachés.</li>
+    <li><strong>Rapide et sécurisé</strong> – Lisez des <strong>flux M3U8 en ligne</strong> sans délais.</li>
+    <li><strong>Aucun logiciel requis</strong> – Utilisez notre <strong>lecteur HLS - Lecteur de streaming M3U8</strong> instantanément.</li>
+    <li><strong>Compatible avec tous les appareils</strong> – Convient aux mobiles, tablettes et ordinateurs de bureau.</li>
+    <li><strong>100% gratuit</strong> – Pas d'abonnements, pas de frais cachés.</li>
 </ul>
 <p><strong>Commencez à diffuser maintenant avec HLS-Player.net !</strong></p>
 </div>
@@ -356,19 +356,19 @@ h2 {
 </center>
 
 <div class='card my-1 p-1 w-100 text-center d-block'>
-Nos Pages : <a href='/?view=contact'>Contactez-nous</a> | 
-<a href='/?view=disclaimer'>Avis de Non-Responsabilité</a> | <a href='/?view=privacypolicy'>Politique de Confidentialité</a> | 
-<a href='/?view=termsconditions'>Termes et Conditions</a>
+Nos pages : <a href='/fr/?view=contact'>Contactez-nous</a> | 
+<a href='/fr/?view=disclaimer'>Avis de non-responsabilité</a> | <a href='/fr/?view=privacypolicy'>Politique de confidentialité</a> | 
+<a href='/fr/?view=termsconditions'>Conditions d'utilisation</a>
 </div>
 
 <div class='card my-1 p-1 w-100 text-center d-block'>
-Plus de Lecteurs : 
-<a href='/fr/hls-player-online.html'>Lecteur HLS en Ligne</a> | 
-<a href='/fr/m3u8-online-player.html'>Lecteur M3U8 en Ligne</a> | 
-<a href='/fr/m3u8-player-online-free.html'>Lecteur M3U8 Gratuit en Ligne</a> | 
-<a href='/fr/m3u8-player-online.html'>Lecteur M3U8 en Ligne</a> |
+Autres lecteurs : 
+<a href='/fr/hls-player-online.html'>Lecteur HLS en ligne</a> | 
+<a href='/fr/m3u8-online-player.html'>Lecteur M3U8 en ligne</a> | 
+<a href='/fr/m3u8-player-online-free.html'>Lecteur M3U8 gratuit en ligne</a> | 
+<a href='/fr/m3u8-player-online.html'>Lecteur M3U8 en ligne</a> |
 <a href='/fr/m3u8-player.html'>Lecteur M3U8</a> | 
-<a href='/fr/play-m3u8-online.html'>Lire M3U8 en Ligne</a>
+<a href='/fr/play-m3u8-online.html'>Lire M3U8 en ligne</a>
 </div>
 
 <div class='colors section' id='Colors'>
@@ -378,7 +378,8 @@ Plus de Lecteurs :
 <div class='widget HTML' data-version='1' id='HTML302'>
 <style> .play-wrapper, .video-js .vjs-big-play-button, .plyr__control--overlaid, button.rmp-button.rmp-overlay-button.rmp-color-bg { background-color: #e72432 !important; } </style>
 </div>
-<div class='widget HTML' data-version='1' id='HTML303'></div>
+<div class='widget HTML' data-version='1' id='HTML303'>
+</div>
 </div>
 
 <!-- BEGIN: Powered by Supercounters.com -->
