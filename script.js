@@ -62,6 +62,10 @@ async function generateIframeUrl() {
                     baseUrl = 'https://hlsplayers.pages.dev/flv.html?url=' + encodeURIComponent(liveLink);
                     plainBaseUrl = 'https://hlsplayers.pages.dev/flv.html?url=' + liveLink;
                     break;
+                case 'mp4':
+                    baseUrl = 'https://hlsplayers.pages.dev/mp4.html?url=' + encodeURIComponent(liveLink);
+                    plainBaseUrl = 'https://hlsplayers.pages.dev/mp4.html?url=' + liveLink;
+                    break;
                 default:
                     baseUrl = '';
                     plainBaseUrl = '';
@@ -142,6 +146,9 @@ function redirectToPlayer() {
                 break;
             case 'flv':
                 basePlayerUrl = 'https://hlsplayers.pages.dev/flv.html?url=';
+                break;
+            case 'mp4':
+                basePlayerUrl = 'https://hlsplayers.pages.dev/mp4.html?url=';
                 break;
             default:
                 alert('Invalid player selected!');
