@@ -3,7 +3,6 @@
 xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' 
 xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
 <head>
-
 <link href='https://fonts.googleapis.com' rel='preconnect'/>
 <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
 <link href='https://fonts.googleapis.com/css2?family=Material+Icons' rel='stylesheet'/>
@@ -49,8 +48,6 @@ xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
 }
 </script>
 
-  
-  
 <style id='page-skin-1' type='text/css'>
 /*Logo position*/
 img.rmp-logo.rmp-logo-top-left {
@@ -61,16 +58,14 @@ bottom: unset !important;
 z-index: 999;
 }
 
-
 h2 {
     border-bottom: 2px solid #007bff;
     display: inline-block;
     padding-bottom: 5px;
 }
   
-          .container { max-width: 100%; margin-top: 30px; }
-        video { width: 100%; margin-top: 10px; border-radius: 5px; }
-
+.container { max-width: 100%; margin-top: 30px; }
+video { width: 100%; margin-top: 10px; border-radius: 5px; }
 </style>
 
 <title> HLS Player - Free MP4 Player Online</title>
@@ -81,7 +76,6 @@ h2 {
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
 <script src='https://www.hls-player.net/script.js'></script>
 
-
 </head>
 <body class='index mpstyle1 players2 '>
 <div class='container'>
@@ -90,7 +84,7 @@ h2 {
 <div class='logo-container'>
 <a href="/">
 <img alt='HLS Player - Free M3U8, MP4, DASH Player' src='/header.png' style='max-width:100%; height:auto;'/>
-  </a>
+</a>
 </div>
 </div>
 </div>
@@ -110,17 +104,14 @@ h2 {
 </script>
 </center>
 
-
-  <div class="container-fluid text-center">
+<div class="container-fluid text-center">
     <div class="btn-group" role="group" aria-label="Video Type">
       <a href="/mp4-player-online.html" class="btn btn-outline-primary btn-lg ">MP4 Player</a>
       <a href="/" class="btn btn-outline-primary btn-lg ">M3U8/HLS  Player</a>
       <a href="/mp4-player-online.html" class="btn btn-outline-primary btn-lg ">DASH/MPD Player</a>
     </div>
-  </div>
+</div>
 
-
-	
 <div class="container">
     <div class="card">
         <div class="card-header text-center">
@@ -130,6 +121,15 @@ h2 {
             <div class="form-group">
                 <label for="fileInput" class="form-label">Upload Your MP4 File Here👇👇</label>
                 <input type="file" class="form-control" id="fileInput" accept="video/mp4">
+            </div>
+            <div class="form-group">
+                <label for="urlInput" class="form-label">Paste Your MP4 URL Here</label>
+                <div class="input-group">
+                    <input type="url" class="form-control" id="urlInput" placeholder="https://example.com/video.mp4">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" onclick="playVideoFromURL()">Play Now</button>
+                    </div>
+                </div>
             </div>
             <video id="videoPlayer" controls>
                 Your browser does not support the video tag.
@@ -214,10 +214,31 @@ h2 {
         if (file) {
             const videoURL = URL.createObjectURL(file);
             video.src = videoURL;
-            recentVideoURL = videoURL;  // Save the recently played video URL
-            saveRecentVideo(videoURL, file.name); // Save video to localStorage
+            recentVideoURL = videoURL;
+            saveRecentVideo(videoURL, file.name);
         }
     });
+
+    // Function to open MP4 URL in a new tab
+    function playVideoFromURL() {
+        const urlInput = document.getElementById('urlInput');
+        const videoURL = urlInput.value.trim();
+        if (videoURL) {
+            // Basic validation for MP4 URL
+            if (!videoURL.match(/\.(mp4)$/i)) {
+                alert('Please enter a valid MP4 URL (e.g., ending with .mp4)');
+                return;
+            }
+            try {
+                // Open the URL in a new tab without encoding
+                window.open(`https://hlsplayers.pages.dev/mp4.html?url=${videoURL}`, '_blank');
+            } catch (error) {
+                alert('Error processing URL. Please check the URL and try again.');
+            }
+        } else {
+            alert('Please enter an MP4 URL.');
+        }
+    }
 
     // Other video control functions
     function playVideo() { video.play(); }
@@ -232,11 +253,11 @@ h2 {
     function fullScreen() {
         if (video.requestFullscreen) {
             video.requestFullscreen();
-        } else if (video.mozRequestFullScreen) { /* Firefox */
+        } else if (video.mozRequestFullScreen) {
             video.mozRequestFullScreen();
-        } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        } else if (video.webkitRequestFullscreen) {
             video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) { /* IE/Edge */
+        } else if (video.msRequestFullscreen) {
             video.msRequestFullscreen();
         }
     }
@@ -244,10 +265,6 @@ h2 {
     // Update the recent videos list on page load
     updateRecentVideosList();
 </script>
-
-  
-  
-  
 
 <center>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7981191925382455"
@@ -264,8 +281,7 @@ h2 {
 </script>
 </center>
 
-
- <div class="container py-5">
+<div class="container py-5">
 <!-- Introduction Section -->
 <div class="col-lg-12 mb-4">
     <div class="card shadow-sm">
@@ -360,18 +376,13 @@ h2 {
         </div>
     </div>
 </div>
-   
 </div>
 
-   
-   
-	      
 <div class='card my-1 p-1 w-100 text-center d-block'>
 Our Pages: <a href='/?view=contact'>Contact Us </a> | 
 <a href='/?view=disclaimer'>Disclaimer</a> | <a href='/?view=privacypolicy'>Privacy Policy</a> | 
 <a href='/?view=termsconditions'>Terms & Conditions</a>	      
 </div>
-
 
 <div class='card my-1 p-1 w-100 text-center d-block'>
 More Players: 
@@ -383,31 +394,21 @@ More Players:
 <a href='/play-m3u8-online.html'> Play M3u8 Online </a> 
 </div>
 
-
-
-
-
-	
-</div>
-  
-  
-  
-<div class='colors section' id='Colors'><div class='widget HTML' data-version='1' id='HTML301'>
+<div class='colors section' id='Colors'>
+<div class='widget HTML' data-version='1' id='HTML301'>
 <style> div#sharbtn, div#relodbtn { background: #e72432; } </style>
-</div><div class='widget HTML' data-version='1' id='HTML302'>
+</div>
+<div class='widget HTML' data-version='1' id='HTML302'>
 <style> .play-wrapper, .video-js .vjs-big-play-button, .plyr__control--overlaid, button.rmp-button.rmp-overlay-button.rmp-color-bg{ background-color: #e72432 !important; } </style>
-</div><div class='widget HTML' data-version='1' id='HTML303'>
+</div>
+<div class='widget HTML' data-version='1' id='HTML303'></div>
+</div>
 
-  
-</div></div>
-
-
-	
-       <!-- BEGIN: Powered by Supercounters.com -->
-        <div style="position:fixed;top:0;left:0;width:100%;height:1px;overflow:hidden;visibility:hidden;z-index:9999;">
-<script id="_wau6ae">var _wau = _wau || []; _wau.push(["dynamic", "1zcs58ixog", "6ae", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
-        </div>
-
+<!-- BEGIN: Powered by Supercounters.com -->
+<div style="position:fixed;top:0;left:0;width:100%;height:1px;overflow:hidden;visibility:hidden;z-index:9999;">
+<script id="_wau6ae">var _wau = _wau || []; _wau.push(["dynamic", "1zcs58ixog", "6ae", "c4302bffffff", "small"]);</script>
+<script async src="//waust.at/d.js"></script>
+</div>
 
 </body>
 </html>
