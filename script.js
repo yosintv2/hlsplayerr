@@ -1,20 +1,3 @@
-// Function to shorten URL using TinyURL API
-async function shortenUrl(longUrl) {
-    try {
-        const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
-        const shortUrl = await response.text();
-        if (shortUrl.startsWith('https://tinyurl.com/')) {
-            return shortUrl;
-        } else {
-            throw new Error('Invalid TinyURL response');
-        }
-    } catch (error) {
-        console.error('Error shortening URL:', error);
-        return longUrl; // Fallback to original URL if shortening fails
-    }
-}
-
-// Function to update iframe URL dynamically
 async function generateIframeUrl() {
     const liveLink = document.getElementById('livelink').value.trim();
     const playerType = document.getElementById('playerytype').value;
@@ -22,68 +5,49 @@ async function generateIframeUrl() {
     const clearKey = document.getElementById('clearKey') ? document.getElementById('clearKey').value.trim() : '';
     const iframeUrlField = document.getElementById('iframeUrl');
     const iframeSection = document.getElementById('iframeSection');
-
     if (liveLink) {
         let baseUrl;
-        let plainBaseUrl;
         if (playerType === 'dashjs') {
-            // Use unencoded values for dashjs
-            plainBaseUrl = `https://hlsplayers.pages.dev/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
-            baseUrl = plaintextBaseUrl; // Use the unencoded MPD player URL directly
+            baseUrl = `https://hlsplayers.pages.dev/mpd?url=${liveLink}${clearKeyId ? `&key1=${clearKeyId}` : ''}${clearKey ? `&key2=${clearKey}` : ''}`;
         } else {
             switch (playerType) {
                 case 'player1':
                     baseUrl = 'https://hlsplayers.pages.dev/player1.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/player1.html?url=' + liveLink;
                     break;
                 case 'player2':
                     baseUrl = 'https://hlsplayers.pages.dev/player2.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/player2.html?url=' + liveLink;
                     break;
                 case 'player3':
                     baseUrl = 'https://hlsplayers.pages.dev/player3.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/player3.html?url=' + liveLink;
                     break;
                 case 'player4':
                     baseUrl = 'https://hlsplayers.pages.dev/player4.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/player4.html?url=' + liveLink;
                     break;
                 case 'player5':
                     baseUrl = 'https://hlsplayers.pages.dev/player5.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/player5.html?url=' + liveLink;
                     break;
                 case 'player6':
                     baseUrl = 'https://hlsplayers.pages.dev/iframe.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/iframe.html?url=' + liveLink;
                     break;
                 case 'flv':
                     baseUrl = 'https://hlsplayers.pages.dev/flv.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/flv.html?url=' + liveLink;
                     break;
                 case 'mp4':
                     baseUrl = 'https://hlsplayers.pages.dev/mp4.html?url=' + encodeURIComponent(liveLink);
-                    plainBaseUrl = 'https://hlsplayers.pages.dev/mp4.html?url=' + liveLink;
                     break;
                 default:
                     baseUrl = '';
-                    plainBaseUrl = '';
                     break;
             }
         }
-
-        // Shorten the plain base URL using TinyURL
-        const shortenedUrl = await shortenUrl(plainBaseUrl);
-
-        // Construct the iframe tag with the shortened URL
-        const iframeUrl = `<iframe src="${shortenedUrl}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
-
+        // Construct the iframe tag with the base URL directly
+        const iframeUrl = `<iframe src="${baseUrl}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>`;
         iframeUrlField.value = iframeUrl;
         iframeSection.style.display = 'block';
     } else {
         iframeSection.style.display = 'none';
     }
 }
-
 // Function to handle redirect to player page
 function redirectToPlayer() {
     const liveLink = document.getElementById('livelink').value.trim();
@@ -93,12 +57,10 @@ function redirectToPlayer() {
     const playerLink = document.getElementById('playerLink');
     const dashPlayerContainer = document.getElementById('dashPlayerContainer');
     const dashVideoPlayer = document.getElementById('dashVideoPlayer');
-
     if (!liveLink) {
         alert('Please enter a valid MPD/M3U8/MP4 link!');
         return;
     }
-
     if (playerType === 'dashjs') {
         if (dashPlayerContainer && dashVideoPlayer) {
             dashPlayerContainer.style.display = 'block';
@@ -155,7 +117,6 @@ function redirectToPlayer() {
         window.open(playerLink.href, '_blank');
     }
 }
-
 // Double-tap to copy iframe URL to clipboard
 function copyIframeUrl() {
     const iframeUrlField = document.getElementById('iframeUrl');
