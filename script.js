@@ -12,28 +12,28 @@ async function generateIframeUrl() {
         } else {
             switch (playerType) {
                 case 'player1':
-                    baseUrl = 'https://hlsplayers.pages.dev/player1.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/player1.html?url=' + liveLink;
                     break;
                 case 'player2':
-                    baseUrl = 'https://hlsplayers.pages.dev/player2.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/player2.html?url=' + liveLink;
                     break;
                 case 'player3':
-                    baseUrl = 'https://hlsplayers.pages.dev/player3.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/player3.html?url=' + liveLink;
                     break;
                 case 'player4':
-                    baseUrl = 'https://hlsplayers.pages.dev/player4.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/player4.html?url=' + liveLink;
                     break;
                 case 'player5':
-                    baseUrl = 'https://hlsplayers.pages.dev/player5.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/player5.html?url=' + liveLink;
                     break;
                 case 'player6':
-                    baseUrl = 'https://hlsplayers.pages.dev/iframe.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/iframe.html?url=' + liveLink;
                     break;
                 case 'flv':
-                    baseUrl = 'https://hlsplayers.pages.dev/flv.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/flv.html?url=' + liveLink;
                     break;
                 case 'mp4':
-                    baseUrl = 'https://hlsplayers.pages.dev/mp4.html?url=' + encodeURIComponent(liveLink);
+                    baseUrl = 'https://hlsplayers.pages.dev/mp4.html?url=' + liveLink;
                     break;
                 default:
                     baseUrl = '';
