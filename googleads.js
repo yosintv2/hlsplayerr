@@ -1,9 +1,11 @@
-// Google AdSense Configuration
+// Google AdSense - Manual ad initialization
 (function() {
-  var s = document.createElement('script');
-  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-  s.setAttribute('data-ad-client', 'ca-pub-5525538810839147');
-  s.async = true;
-  s.crossOrigin = 'anonymous';
-  document.head.appendChild(s);
+  function initAds() {
+    var slots = document.querySelectorAll('.ad, .adsbygoogle');
+    for (var i = 0; i < slots.length; i++) {
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    }
+  }
+  if (document.readyState === 'complete') initAds();
+  else window.addEventListener('load', initAds);
 })();
