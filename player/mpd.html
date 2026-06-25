@@ -1,0 +1,135 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.14.10/dist/shaka-player.ui.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/shaka-player@4.14.10/dist/controls.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ZheHacK/fypnews.id@main/css//youtube-theme.css" />
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script>
+    (function(open) {
+        XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
+            rewrittenUrl = url;
+            open.call(this, method, rewrittenUrl, async, user, pass);
+        };
+    })(XMLHttpRequest.prototype.open);
+    </script>
+    <style>
+    @import "https://fonts.googleapis.com/css?family=Play:300,400,700";
+    @import "https://fonts.googleapis.com/css?family=Monda:300,400,700";
+    @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700";
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: black;
+    }
+    .shaka-video-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+    }
+    .shaka-video {
+        width: 100%;
+        height: 100%;
+    }
+    .shaka-play-button,
+    .shaka-spinner-container {
+        transform: scale(0.8);
+    }
+    .shaka-video-container .material-icons-round {
+        color: #f1ff00;
+    }
+    </style>
+</head>
+<body>
+    <section id="wrap">
+        <div class="youtube-theme">
+            <video autoplay autostart="true" data-shaka-player poster="/img/tv-static.gif" id="youtube-theme" style="width: 100vw; height: calc(var(--vh, 1vh) * 100);"></video>
+        </div>
+    </section>
+    <script type="text/javascript">
+    // Extract MPD URL, key1, and key2 from URL parameters
+    function getUrlParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+            url: urlParams.get('url') || '(urlhere)', // Fallback to default if no parameter
+            key1: urlParams.get('key1') || '(key1)', // Fallback to default if no parameter
+            key2: urlParams.get('key2') || '(key2)' // Fallback to default if no parameter
+        };
+    }
+
+    const params = getUrlParameters();
+    const youtube_theme_manifestUri = params.url;
+
+    async function init() {
+        const video = document.getElementById('youtube-theme');
+        const ui = video['ui'];
+        const config = {
+            'seekBarColors': {
+                base: 'rgba(255,255,255,.2)',
+                buffered: 'rgba(255,255,255,.4)',
+                played: 'rgb(255,0,0)',
+            }
+        };
+        ui.configure(config);
+
+        const controls = ui.getControls();
+        const player = controls.getPlayer();
+        player.configure({
+            drm: {
+                clearKeys: {
+                    [params.key1]: params.key2 // Dynamically set key1 and key2
+                }
+            }
+        });
+
+        // Attach player and ui to the window to make it easy to access in the JS console.
+        window.player = player;
+        window.ui = ui;
+
+        // Listen for error events.
+        player.addEventListener('error', onPlayerErrorEvent);
+        controls.addEventListener('error', onUIErrorEvent);
+
+        try {
+            await player.load(youtube_theme_manifestUri);
+        } catch (error) {
+            onPlayerError(error);
+        }
+
+        function onPlayerErrorEvent(errorEvent) {
+            onPlayerError(event.detail);
+        }
+
+        function onPlayerError(error) {
+            console.error('Error code', error.code, 'object', error);
+        }
+
+        function onUIErrorEvent(errorEvent) {
+            onPlayerError(event.detail);
+        }
+
+        function initFailed(errorEvent) {
+            console.error('Unable to load the UI library!');
+        }
+
+        $('.shaka-overflow-menu-button').html('settings');
+        $('.shaka-back-to-overflow-button .material-icons-round').html('arrow_back_ios_new');
+    }
+
+    document.addEventListener('shaka-ui-loaded', init);
+    document.addEventListener('shaka-ui-load-failed', initFailed);
+    </script>
+</body>
+</html>
