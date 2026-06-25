@@ -21,6 +21,7 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 .container { width: min(1120px, 92%); margin: 0 auto; position:relative; }
 .topbar {
@@ -61,7 +62,7 @@ h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.15; 
 .tool-form { display: grid; gap: 14px; }
 .tool-form label { font-weight: 600; font-size: 0.9rem; color: var(--muted); }
 input, select, textarea {
-  font: inherit;
+  font-size: 16px;
   border-radius: 14px;
   border: 1.5px solid var(--border);
   background: var(--bg-soft);
@@ -141,7 +142,7 @@ button:active { transform: translateY(0); }
 }
 .links a:hover { color: var(--accent); }
 .ad { text-align: center; margin: 24px 0; min-height: 90px; overflow: hidden; }
-.btn-group-2 { display:flex; gap:8px; justify-content:center; margin:16px 0; }
+.btn-group-2 { display:flex; gap:8px; justify-content:center; margin:16px 0; flex-wrap:wrap; }
 .btn-group-2 a {
   padding:10px 18px; border-radius:100px; border:1.5px solid var(--border);
   color:var(--muted); text-decoration:none;
@@ -173,5 +174,11 @@ video { width:100%; border-radius:12px; }
   .grid { grid-template-columns:1fr; }
   .hero-box { padding:20px; }
   .langs a { margin:0 4px; font-size:0.78rem; padding:3px 7px; }
+  .langs { display:flex; flex-wrap:wrap; justify-content:center; }
   .topbar { justify-content:center; flex-direction:column; align-items:center; text-align:center; }
+  .hero::before, .hero::after { display:none; }
+  .btn-group-2 a { font-size:clamp(0.7rem,2.5vw,0.85rem); padding:8px 12px; }
+}
+@media (max-width: 420px) {
+  .btn-row { flex-direction:column; }
 }
